@@ -92,7 +92,7 @@
                                 <div class="card__info_separator"></div>
                                 <div class="card__author-wrap">
                                     {% set profileImage = _Media.getMediaUrl(article.createdBy['media'], 23, 23, {radius: 'max', gravity: 'face', 'crop': 'thumb', 'type' : 'user'}) %}
-                                    <span class="card__author-image" style="background-image: url('{{ profileImage }}');"></span>
+                                    <span class="card__author-image" style="background-size: cover; background-image: url('{{ profileImage }}');"></span>
                                     <p class="card__author">By {{article.createdBy['displayName']}}</p>
                                 </div>
                             </div>
