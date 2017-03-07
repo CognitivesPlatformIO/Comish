@@ -1,0 +1,49 @@
+<div class="header-mobile">
+    <div class="header-mobile__links">
+        <div class="header-mobile__navigation">
+            {% set entries = craft.categories.group('channels') %}
+            {% set blogs = craft.categories.group('blogs') %}
+            {% for i in 0..4 %}
+                {% set entry = entries[i] %}
+                <a href="{{ entry.url }}" class="header-mobile__navigation_link {{ channelObject[entry.title|lower] }}">{{ entry }}</a>
+            {% endfor %}
+            {% if entries[5] is defined %}
+                <div class="header-mobile__navigation_more">
+                    <a class="header-mobile__navigation_link">More <i class="fa fa-angle-down"></i></a>
+                    <div class="header-mobile__navigation_more-box">
+                        {% for i in 5..(entries|length - 1)%}
+                            {% set entry = entries[i] %}
+                            <a href="{{ entry.url }}" class="header-mobile__navigation_more-link {{ channelObject[entry.title|lower] }}">{{ entry }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="header-mobile__singles">
+            {% set singles = craft.entries('singles') %}
+            {% for single in singles if single.displayInNav %}
+                <a href="{{ single.url }}" class="header-mobile__singles_link">{{ single.title }}</a>
+            {% endfor %}
+        </div>
+        <div class="header-mobile__user">
+            {% if _User.isGuest() %}
+                <div class="header__user_login" id="login">
+                    <a class="header__login__link">Login</a>
+                    |
+                    <a class="header__login__link header__login__link--signup sign-up__link">Sign Up</a>
+                </div>
+            {% else %}
+                {% set profileImage = ''%}
+                {% set userImage = '' %}
+                {% set userImage = 'header__heading-link--profile-image' %}
+                {% set profileImage = _Media.getMediaUrl(user.profileMedia, 80, 80, {radius: 'max', gravity: 'face', 'crop': 'thumb', 'type' : 'user'}) %}
+                <img class="header__user_image" src="{{profileImage}}" alt="User image"/>
+                <div class="header__user_text">user <i class="fa fa-angle-down"></i></div>
+                {% endif %}
+        </div>
+    </div>
+    <form class="header-mobile__search" action="{{ url('search') }}">
+        <button class="header-mobile__search_button"><i class="fa fa-search"></i></button>
+        <input class="header-mobile__search_input" placeholder="Search" name="s"></input>
+    </form>
+</div>
