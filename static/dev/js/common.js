@@ -246,21 +246,25 @@
      *                  USER EDIT PROFILE PAGE JS
      ************************************************************************************/
 
-    $('.uploadFileBtn').uploadFile({
-        onSuccess: function (data, obj) {
-            var resultJsonStr = JSON.stringify(data);
+    $('.uploadFileBtn').on('click', function () {
+        var obj = $(this);
+        var blogGuid = $(obj).data('guid');
 
-            var imgClass = $(obj).data('imgcls');
-            $('.' + imgClass).css('background-image', 'url(' + data.url + ')');
+        $.fn.uploadImagesModal({
+            blogGuid: blogGuid,
+            onSuccess: function (data) {
+                var resultJsonStr = JSON.stringify(data);
 
-            var fieldId = $(obj).data('id');
-            $('#' + fieldId).val(resultJsonStr);
+                var imgClass = $(obj).data('imgcls');
+                $('.' + imgClass).css('background-image', 'url(' + data.url + ')');
 
-            $().General_ShowNotification({message: 'Image added successfully'});
-        },
-        onError: function (obj, errorMessage) {
-            $().General_ShowNotification({message: errorMessage, type: 'error', timeout: 4000});
-        }
+                var fieldId = $(obj).data('id');
+                $('#' + fieldId).val(resultJsonStr);
+
+            },
+            onError: function (obj, errorMessage) {
+            }
+        });
     });
 
 
@@ -399,49 +403,49 @@
             $(elem).prev().addClass('active');
         }
     });
-    
-    $('.searchArticle').on('click', function (e) {     
+
+    $('.searchArticle').on('click', function (e) {
         var searchTerm = $('#searchArticleForm').find('input').val().trim();
         $('#searchArticleForm').find('input').val(searchTerm);
-        if(!searchTerm){
+        if (!searchTerm) {
             return false;
         }
     });
-    
+
     $('.header__user').on('click', function () {
-      $('.header__user_popup-container').toggleClass('active');
-      //$('#popup-overlay').addClass('active');
+        $('.header__user_popup-container').toggleClass('active');
+        //$('#popup-overlay').addClass('active');
     });
 
     // Moile header popups
     $('.header-mobile__navigation_more').on('click', function () {
-      $('.header-mobile__navigation_more-box').toggleClass('active');
-      $('#popup-overlay').addClass('active');
+        $('.header-mobile__navigation_more-box').toggleClass('active');
+        $('#popup-overlay').addClass('active');
     });
 
     $('.header-mobile__user').on('click', function () {
-      $('.header-mobile__user_popup').toggleClass('active');
-      $('#popup-overlay').addClass('active');
+        $('.header-mobile__user_popup').toggleClass('active');
+        $('#popup-overlay').addClass('active');
     });
-    
+
     // Header Search
     $('.header__search-button, .header__search-form_close').on('click', function () {
-      $('.header__search-form_container').toggleClass('active');
+        $('.header__search-form_container').toggleClass('active');
     });
 
     // Header mobile toggle
     $('.header__toggle').on('click', function () {
-      $('.header-mobile').toggleClass('active');
-      $('.header__toggle-close').toggleClass('active');
-      $(this).toggleClass('active');
+        $('.header-mobile').toggleClass('active');
+        $('.header__toggle-close').toggleClass('active');
+        $(this).toggleClass('active');
     });
 
     $('.header__toggle-close').on('click', function () {
-      $('.header-mobile').toggleClass('active');
-      $('.header__toggle').toggleClass('active');
-      $(this).toggleClass('active');
+        $('.header-mobile').toggleClass('active');
+        $('.header__toggle').toggleClass('active');
+        $(this).toggleClass('active');
     });
-    
+
     $('.header__user_image, .header__user_text').on('click', function (e) {
         e.preventDefault();
         $('.account-modal__container').addClass('active');
@@ -450,19 +454,19 @@
 
     // Header search focus.
     $('.header__search-form_input').on('focus', function () {
-      $('.header__search-form').addClass('active');
+        $('.header__search-form').addClass('active');
     });
 
     $('.header__search-form_input').on('blur', function () {
-      $('.header__search-form').removeClass('active');
+        $('.header__search-form').removeClass('active');
     });
 
     $('.header-mobile__search_input').on('focus', function () {
-      $('.header-mobile__search').addClass('active');
+        $('.header-mobile__search').addClass('active');
     });
 
     $('.header-mobile__search_input').on('blur', function () {
-      $('.header-mobile__search').removeClass('active');
+        $('.header-mobile__search').removeClass('active');
     });
 
     // Footer popup
