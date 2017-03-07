@@ -409,9 +409,8 @@
     });
     
     $('.header__user').on('click', function () {
-        alert();
       $('.header__user_popup-container').toggleClass('active');
-      $('#popup-overlay').addClass('active');
+      //$('#popup-overlay').addClass('active');
     });
 
     // Moile header popups
@@ -441,6 +440,12 @@
       $('.header-mobile').toggleClass('active');
       $('.header__toggle').toggleClass('active');
       $(this).toggleClass('active');
+    });
+    
+    $('.header__user_image, .header__user_text').on('click', function (e) {
+        e.preventDefault();
+        $('.account-modal__container').addClass('active');
+        $('body').addClass('active');
     });
 
     // Header search focus.
