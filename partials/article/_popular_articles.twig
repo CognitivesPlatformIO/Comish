@@ -1,6 +1,9 @@
 {% set popularArticles = _Article.getPopularArticles({ limit: 3, excludeArticleIds : articleId }) %}
 {% if popularArticles|length > 0 %}
-    <h2 class="text-center additional-articles__header">You may also like ...</h2>
+<div class="article__related-title_container">
+    <div class="text-center article__related-title">Articles You May Interested In</div>
+</div>
+<div class="article__related-container">
     <div class="card-container">
         {% set i = 1 %}
         {% for article in popularArticles %}
@@ -8,4 +11,5 @@
             {% set i = i+1 %}
         {% endfor %}
     </div>
+</div>
 {% endif %}

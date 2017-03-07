@@ -466,6 +466,80 @@
         $('#popup-overlay').addClass('active');
     });
 
+
+
+    // Article social links fixed position on scroll.
+    var width = $(window).width();
+    if (width >= 768) {
+        if ($('.article__social-links').length) {
+            var socialLinks = $('.article__social-links');
+            var headerLeft = $('.header__content').offset().left;
+            socialLinks.css({
+                left: headerLeft
+            });
+        }
+    }
+
+    if ($('.article__social-links').length) {
+        $(window).resize(function () {
+            var socialLinks = $('.article__social-links');
+            var width = $(window).width();
+            var headerLeft = $('.header__content').offset().left;
+            if (width <= 768) {
+                socialLinks.css({
+                  position: "static"
+                });
+            } else {
+                socialLinks.css({
+                  position: "absolute",
+                  left: headerLeft
+              });
+            }
+        });
+    }
+
+    if ($('.article__social-links').length) {
+        $(window).scroll(function() {
+          var scroll = $(window).scrollTop();
+          var scrollBottom = $(window).scrollTop() + $(window).height();
+          var socialLinks = $('.article__social-links');
+          var socialLinksHeight = $('.article__social-links').height();
+          var articleTop = $('.article__info_container').offset().top;
+          var articleBottom = $('.article__related-title_container').offset().top - 120;
+          var headerLeft = $('.header__content').offset().left;
+          var width = $(window).width();
+
+
+          if (width >= 900) {
+              if ($(window).scrollTop() >= articleTop) {
+                  if (articleBottom - scroll < socialLinksHeight) {
+                      var comp = articleBottom - scroll - socialLinksHeight;
+                      socialLinks.css({
+                          position: "fixed",
+                          top: Math.round(-Math.abs(comp)) + 50 + "px"
+                      });
+                  } else {
+                      socialLinks.css({
+                          position: "fixed",
+                          top: "50px",
+                          left: headerLeft
+                      });
+                  }
+              } else {
+                  socialLinks.css({
+                    position: "absolute",
+                    top: "-110px",
+                    left: headerLeft
+                });
+              }
+          } else if (width <= 768) {
+              socialLinks.css({
+                position: "static",
+              });
+          }
+        });
+    }
+
 }(jQuery));
 
 
