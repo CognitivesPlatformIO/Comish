@@ -3,6 +3,8 @@
 
 {{this.registerJs("SearchController.listing();")}}
 
+{{ set(this, 'params', {search: true})  }}
+
 {% set limit = 20 %}
 {% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search}) %}
 {% set blog = _Blog.getBlog() %}

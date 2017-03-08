@@ -1,6 +1,6 @@
 (function ($) {
         
-    $('.FollowUnfollowBlog').on('click', function (e) {
+    $('.FollowUnfollowBlog, .followBlog').on('click', function (e) {
         e.preventDefault();
         var obj = $(this);
         var blogGuid = $(obj).data('guid');

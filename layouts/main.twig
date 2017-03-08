@@ -87,6 +87,9 @@
                             <div id="container">
 
                                 {{ this.render('partials/_header.twig', {network: networkData, blogData: blogData}) | raw }}
+                                {% if this.params['search'] is defined and this.params['search'] == true %}
+                                    <div class="header-theme-color"></div>
+                                {% endif %}
                                 <main id="content" role="main">
                                     {{ content | raw}}
                                 </main>

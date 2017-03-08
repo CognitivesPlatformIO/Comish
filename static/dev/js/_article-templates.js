@@ -27,7 +27,7 @@ var systemCardTemplate =
         '<meta itemprop="datePublished" content="{{metaPublishDate}}"/>'+
         '<meta itemprop="dateModified" content="{{metaUpdateDate}}"/>'+        
         '<div class="card__overlay">'+
-                    '<div class="card__content_wrap">'+
+                    '<div class="card__content-wrap">'+
                         '{{#if hasMedia}}'+
                             '<div class="card__image" style="background-image: url(\'{{imageUrl}}\');background-size: cover;background-position:center center;">'+
                                 '<div class="card__image_overlay"></div>'+
@@ -78,7 +78,7 @@ var socialCardTemplate =
         '<article id="Social{{socialId}}" class="card--social channel-3 swap {{social.media.type}}"  data-source="{{social.source}}"  data-id="{{socialId}}" data-label="{{social.blog.title}}" data-position="{{position}}" data-social="1" data-article-image="{{social.media.path}}" data-article-text="{{social.content}}" data-user-image="{{social.user.media.path}}" data-user-name="{{ social.user.name }}">'+
         '<a href="{{ social.url }}" class="card socialCard card--{{social.blog.title }} link card__{{social.source}} {{#unless social.hasMedia}} card__no-image{{/unless}}" data-blog-guid="{{social.blog.guid}}" data-guid="{{social.guid}}" {{#if social.hasMedia}} style="background-image: url({{social.media.path}})" {{/if}}>'+ 
         '<div class="card__overlay">'+
-                    '<div class="card__content_wrap">'+
+                    '<div class="card__content-wrap">'+
                         '{{#if userHasBlogAccess}}'+
                             '<div class="admin-actions">'+
                                 '<div class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-guid="{{social.guid}}" data-social="1">'+
@@ -109,7 +109,7 @@ var socialCardTemplate =
                              '{{#if hasMediaVideo }}'+
                             '<div class="card__text-wrap">'+
                                 //'<img class="card__play-button video-player" data-source="{{social.source}}" data-url="{{social.media.videoUrl}}" data-poster="{{social.media.path}}" src="{{templatePath}}/static/images/icons/play-white.svg" alt="Play video button">'+
-                                '<p class="card__text description" id="updateSocial{{socialId}}" data-update="0">{{social.content}}</p>'+
+                                '<p class="card__headline" id="updateSocial{{socialId}}" data-update="0">{{social.content}}</p>'+
                             '</div>'+
                             '{{else}}'+
                                 '<p class="card__headline" id="updateSocial{{socialId}}" data-update="0">{{social.content}}</p>'+

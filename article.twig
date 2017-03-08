@@ -97,7 +97,7 @@
                 {% set readingTime = Helper.getEstimatedReadingTime(article.content)%}
                 <div class="article__info_tab">{{Helper.renderReadingTime(readingTime) | raw}}</div>
                 <div class="article__info_tab">{{article.publishedDate}}</div>
-                <a href="" class="article__info_tab article__info_tab--comments">16 Comments</a>
+                <a href="javascript:void(0);" class="article__info_tab article__info_tab--comments">{{article.total['comment']}} Comments</a>
             </div>
         </div>
     </div>
@@ -115,7 +115,6 @@
             <div class="article__comments">
                 <!-- Disqus Plugin Render Here -->
                 {% if network.thirdPartyIntegrations['disqus'] | length > 0 and network.thirdPartyIntegrations['disqus']['shortName'] != '' %}
-                    <h2 class="comments-header" id="comments">Comments</h2>
                     {{this.render("partials/article/_disqus_comments.twig", {disqus: network.thirdPartyIntegrations['disqus'], userId: article.createdBy['id'], url:article.url, articleId: article.id}) | raw}}
                 {% endif %}
                 <!-- End Disqus Block -->

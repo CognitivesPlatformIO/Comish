@@ -17,6 +17,7 @@ HomeController.Listing = (function ($) {
     var bindPinUnpinArticle = function () {
         $('.PinArticleBtn').on('click', function (e) {
             e.preventDefault();
+            e.stopPropagation();
             var obj = $(this);
             var articleId = parseInt($(obj).data('id'));
             var position = parseInt($(obj).data('position'));
@@ -45,9 +46,10 @@ HomeController.Listing = (function ($) {
         });
     };
 
-    var bindDeleteHideArticle = function () {        
+    var bindDeleteHideArticle = function () {
         $('.HideBlogArticle').on('click', function (e) {
             e.preventDefault();
+            e.stopPropagation();
             var obj = $(this);
             var isSocial = $(obj).data('social');
             var articleGuid = $(obj).data('guid');
@@ -72,6 +74,7 @@ HomeController.Listing = (function ($) {
 
         $('#content').on('click', 'a.socialCard', function (e) {
             e.preventDefault();
+            e.stopPropagation();
             var blogGuid = $(this).data('blog-guid');
             var postGuid = $(this).data('guid');
 
@@ -252,8 +255,12 @@ HomeController.Listing = (function ($) {
 
         $('.loadMoreArticles').on('click', function (e) {
             e.preventDefault();
+            e.stopPropagation();
             var btnObj = $(this);
             $.fn.LoadBlogArticles({
+                offset: $('.ajaxArticles').data('offset'),
+                limit: 20,
+                viewTotalNonPinnedPost: $('.ajaxArticles').data('existing-nonpinned-count'),
                 onSuccess: function (data, textStatus, jqXHR) {
                     if (data.success == 1) {
                         $('.ajaxArticles').data('existing-nonpinned-count', data.existingNonPinnedCount);
@@ -418,41 +425,6 @@ HomeController.Blog = (function ($) {
 
     var attachEvents = function () {
 
-        //attach follow blog
-        $('.followBlog').followBlog({
-            onSuccess: function (data, obj) {
-                var msg = ($(obj).data('status') === 'follow') ? 'Blog unfollowed successfully' : 'Blog followed successfully';
-                //$().General_ShowNotification({message: msg});
-            },
-            onError: function (obj, errorMessage) {
-                //$().General_ShowNotification({message: errorMessage, type: 'error', timeout: 4000});
-            },
-            beforeSend: function (obj) {
-                $(obj).html('Please wait...');
-            },
-            onComplete: function (obj) {
-                ($(obj).data('status') === 'follow') ? $(obj).html('Follow') : $(obj).html('Unfollow');
-            }
-        });
-
-        //attach follow user
-        $('.followUser').followUser({
-            onSuccess: function (data, obj) {
-                ($(obj).data('status') === 'follow') ? $(obj).html("Follow") : $(obj).html("Unfollow");
-                var message = ($(obj).data('status') === 'follow') ? 'User unfollowed successfully' : 'User followed successfully';
-                //$.fn.General_ShowNotification({message: message});
-            },
-            'beforeSend': function (obj) {
-                $(obj).html("Please wait...");
-            },
-            onError: function (obj, errorMessage) {
-                //$().General_ShowNotification({message: errorMessage, type: 'error', timeout: 4000});
-            },
-            'onComplete': function (obj) {
-                ($(obj).data('status') === 'follow') ? $(obj).html("Follow +") : $(obj).html("Following -");
-            }
-        });
-
     };
 
     return {
@@ -469,21 +441,25 @@ HomeController.Article = (function ($) {
 
         //$('.video-player').videoPlayer();
 
-        $('.followArticleBtn').followUser({
-            onSuccess: function (data, obj) {
-                ($(obj).data('status') === 'follow') ? $(obj).html("Follow") : $(obj).html("Unfollow");
-                var message = ($(obj).data('status') === 'follow') ? 'User unfollowed successfully' : 'User followed successfully';
-                //$.fn.General_ShowNotification({message: message});
-            },
-            beforeSend: function (obj) {
-                $(obj).html('please wait...');
-            },
-            onError: function (obj, errorMessage) {
-                //$().General_ShowNotification({message: errorMessage, type: 'error', timeout: 4000});
-            },
-            'onComplete': function (obj) {
-                ($(obj).data('status') === 'follow') ? $(obj).html("Follow") : $(obj).html("Unfollow");
-            }
+        $('.followArticleBtn').on('click', function (e) {
+            e.preventDefault();
+            var obj = $(this);
+            var userGuid = $(obj).data('guid');
+            var status = $(obj).data('status');
+            var state = (status === 'unfollow') ? 'follow' : 'unfollow';
+            $.fn.followUser({
+                userGuid: userGuid,
+                onSuccess: function (data) {
+                    $(obj).data('status', state);
+                    var status = $(obj).data('status');
+                    $(obj).get(0).lastChild.nodeValue = " " + status.substr(0, 1).toUpperCase() + status.substr(1);
+                    ($(obj).data('status') === 'follow') ? $(obj).html("Follow") : $(obj).html("Unfollow");
+                    ($(obj).data('status') === 'follow') ? $(obj).data('status') : 'Follow';
+                },
+                beforeSend: function (obj) {
+                    $(obj).html('please wait...');
+                }
+            });
         });
 
     };

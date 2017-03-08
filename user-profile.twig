@@ -29,30 +29,38 @@
                     </div>
                 </div>
             {% endif %}
+            {% if myBlogs is not empty and myBlogs | length > 0 %}
             <div class="user-posts__title">Follows:</div>
             <div class="card-container">
                 <div class="card-row">
                     {{this.render('partials/user-profile/_user_following_blogs.twig', {myBlogs : myBlogs}) | raw }}
                 </div>
             </div>
+            {% endif %}   
+            {% if myFollowings is not empty and myFollowings | length > 0 %}
             <div class="user-posts__title">Following writers:</div>
             <div class="card-container">
                 <div class="card-row">
                     {{this.render('partials/user-profile/_user_following_writer.twig', {myFollowings : myFollowings}) | raw }}
                 </div>
             </div>
+            {% endif %} 
+            {% if myFollowers is not empty and myFollowers | length > 0 %}
             <div class="user-posts__title">Users following you:</div>
             <div class="card-container">
                 <div class="card-row">
                     {{this.render('partials/user-profile/_user_followed_by.twig', {myFollowers : myFollowers}) | raw }}
                 </div>
             </div>
+            {% endif %} 
+            {% if myArticles is not empty and myArticles | length > 0 %}
             <div class="user-posts__title">Articles by {{Html.encode(userDetails.firstname)}} {{Html.encode(userDetails.lastname)}}:</div>
             <div class="card-container">
                 <div class="card-row">
                     {{this.render('partials/user-profile/_recent_articles.twig', {myArticles : myArticles}) | raw }}
                 </div>
             </div>
+            {% endif %} 
         </div>
     </div>
 </div>
