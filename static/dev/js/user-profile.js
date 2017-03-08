@@ -1,6 +1,7 @@
 (function ($) {
         
-    $('.FollowUnfollowBlog').on('click', function () {
+    $('.FollowUnfollowBlog').on('click', function (e) {
+        e.preventDefault();
         var obj = $(this);
         var blogGuid = $(obj).data('guid');
         var status = $(obj).data('status');
@@ -20,7 +21,8 @@
         });
     });
     
-    $('.FollowProfileUser, .followWriter, .followUser').on('click', function () {
+    $('.FollowProfileUser, .followWriter, .followUser').on('click', function (e) {
+        e.preventDefault();
         var obj = $(this);
         var userGuid = $(obj).data('guid');
         var status = $(obj).data('status');

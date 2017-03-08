@@ -28,6 +28,11 @@ var systemCardTemplate =
         '<meta itemprop="dateModified" content="{{metaUpdateDate}}"/>'+        
         '<div class="card__overlay">'+
                     '<div class="card__content_wrap">'+
+                        '{{#if hasMedia}}'+
+                            '<div class="card__image" style="background-image: url(\'{{imageUrl}}\');background-size: cover;background-position:center center;">'+
+                                '<div class="card__image_overlay"></div>'+
+                            '</div>'+
+                        '{{/if}}'+
                         '{{#if userHasBlogAccess}}'+
                             '<div class="admin-actions">'+
                                 '<div class="admin-actions__action admin-actions__action--hide HideBlogArticle" data-guid="{{guid}}" data-social="0">'+
@@ -54,13 +59,14 @@ var systemCardTemplate =
                             '<div itemprop="author" itemscope itemtype="https://schema.org/Person">'+
                                  '<meta itemprop="name" content="{{createdBy.displayName}}"/>'+
                             '</div>'+
-                            '<div class="card__read-time_wrap">'+
-                                '<p class="card__read-time"><span class="card__paragraph-icon"></span> {{readingTime}}</p>'+
+                            '<div class="card__info">'+
+                                '<div class="card__read-time">{{readingTime}}</div>'+
+                                '<div class="card__info_separator"></div>'+
+                                '<div class="card__author-wrap">'+
+                                    '<p class="card__author">By {{createdBy.displayName}}</p>'+
+                                '</div>'+
                             '</div>'+
-                        '</div>'+
-                        '{{#if hasMedia}}'+
-                            '<div class="card__image" style="background-image: url(\'{{imageUrl}}\');background-size: cover;background-position:center center;"></div>'+
-                        '{{/if}}'+
+                        '</div>'+                        
                     '</div>'+
                 '</div>'+
             '</a>'+
@@ -89,35 +95,32 @@ var socialCardTemplate =
                                 '</div>'+
                             '</div>'+	
                          '{{/if}}'+
-                        '<div class="card__content">'+
-                            '<div class="card__channel-wrap">'+
-                                '<h5 class="card__channel">{{social.blog.title}}</h5>'+
-                            '</div>'+
-                             '{{#if hasMediaVideo }}'+
-                            '<div class="card__text-wrap">'+
-                                '<img class="card__play-button video-player" data-source="{{social.source}}" data-url="{{social.media.videoUrl}}" data-poster="{{social.media.path}}" src="{{templatePath}}/static/images/icons/play-white.svg" alt="Play video button">'+
-                                '<p class="card__text description" id="updateSocial{{socialId}}" data-update="0">{{social.content}}</p>'+
-                            '</div>'+
-                            '<p class="card__author"><i class="card__network-icon fa fa-{{social.source}}-play"></i> @{{social.user.name}}</p>'+
-                            '{{else}}'+
-                                '<p class="card__text description" id="updateSocial{{socialId}}" data-update="0">{{social.content}}</p>'+
-                                '<p class="card__author">'+
-                                '<i class="card__network-icon fa fa-{{social.source}}"></i> '+
-                                '{{#if isTwitter}}'+
-                                    '@{{social.user.name}}'+
-                                '{{else}}'+
-                                    '{{ social.user.name }}'+
-                                '{{/if}}'+
-                                '</p>'+
-                        '{{/if}}'+
-                        '</div>'+
-                        '{{#if social.hasMedia}}'+
+                         '{{#if social.hasMedia}}'+
                             '<div class="card__image" style="background-image: url(\'{{ social.media.path }}\');background-size: cover;background-position:center center;">'+
                                 '{{#if hasMediaVideo }}'+
                                     '<img class="card__play-button" src="{{templatePath}}/static/images/icons/play-white.svg" alt="Play">'+
                                 '{{/if}}'+
                             '</div>'+
                         '{{/if}}'+
+                        '<div class="card__content">'+
+                            '<div class="card__channel-wrap">'+
+                                '<h5 class="card__channel">{{social.blog.title}}</h5>'+
+                            '</div>'+
+                             '{{#if hasMediaVideo }}'+
+                            '<div class="card__text-wrap">'+
+                                //'<img class="card__play-button video-player" data-source="{{social.source}}" data-url="{{social.media.videoUrl}}" data-poster="{{social.media.path}}" src="{{templatePath}}/static/images/icons/play-white.svg" alt="Play video button">'+
+                                '<p class="card__text description" id="updateSocial{{socialId}}" data-update="0">{{social.content}}</p>'+
+                            '</div>'+
+                            '{{else}}'+
+                                '<p class="card__headline" id="updateSocial{{socialId}}" data-update="0">{{social.content}}</p>'+
+                            '{{/if}}'+
+                            '<div class="card__info">'+
+                                '<div class="card__info_separator"></div>'+
+                                '<div class="card__author-wrap">'+
+                                    '<p class="card__author">@{{ social.user.name }}</p>'+
+                                '</div>'+
+                            '</div>'+                        
+                        '</div>'+                        
                     '</div>'+
                 '</div>'+
             '</a>'+
