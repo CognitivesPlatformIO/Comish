@@ -71,8 +71,7 @@
                                     <span>{{pinTxt}}</span>
                                     <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
                                 </div>
-                                <div class="admin-actions__action admin-actions__action--edit" onclick="window.location = '{{article.editUrl}}';
-                                        return false;">
+                                <div class="admin-actions__action admin-actions__action--edit" onclick="window.location = '{{article.editUrl}}';return false;">
                                     <span>EDIT</span>
                                     <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
                                 </div>
@@ -144,8 +143,7 @@
                                     <span>{{pinTxt}}</span>
                                     <img src="{{networkData.templatePath}}/static/images/icons/editor/pin.svg" alt="pin card">
                                 </div>
-                                <div class="admin-actions__action admin-actions__action--edit" data-social="1" onClick="window.open('/admin/social-funnel/update-social?guid={{social.blog['guid']}}&socialguid={{social.guid}}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=450');
-                                            return false;">
+                                <div class="admin-actions__action admin-actions__action--edit" data-social="1" onClick="window.open('/admin/social-funnel/update-social?guid={{social.blog['guid']}}&socialguid={{social.guid}}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,width=360,height=450');return false;">
                                     <span>EDIT</span>
                                     <img src="{{networkData.templatePath}}/static/images/icons/editor/edit.svg" alt="edit card">
                                 </div>
@@ -169,6 +167,7 @@
                             <div class="card__info">
                                 <div class="card__info_separator"></div>
                                 <div class="card__author-wrap">
+                                    <span class="card__author-image" style="background-size: cover; background-image: url('{{social.user['media']['path']}}');"></span>
                                     <p class="card__author">@{{ social.user['name'] | lower }}</p>
                                 </div>
                             </div>

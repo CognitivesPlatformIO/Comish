@@ -187,7 +187,7 @@ var socialModalTemplate =
                                             '</div>'+
                                     '{{else}}'+
                                             '<div class="social-modal__image" style="background-image: url(\'{{media.path}}\');" >'+
-                                            //'<img class="social-modal__image_image" src="{{media.path}}" alt="" />'+
+                                            '<img class="social-modal__image_image" src="{{media.path}}" alt="" />'+
                                             '</div>'+
                                     '{{/if}}'+
                             '</div>'+
