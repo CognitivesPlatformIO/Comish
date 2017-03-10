@@ -39,6 +39,23 @@ HomeController.Listing = (function ($) {
                     (status == 1)
                             ? $(obj).find('span').first().html('UN-PIN')
                             : $(obj).find('span').first().html('PIN');
+					var message = (status == 1)
+                            ? 'Article pinned successfully'
+                            : 'Article unpinned successfully';
+							
+					noty({
+                        type: 'success',
+                        text: message,
+                        layout: 'topRight',
+                        timeout: 2000,
+                        dismissQueue: true,
+                        animation: {
+                            open: 'animated bounceInRight', // jQuery animate function property object
+                            close: 'animated bounceOutRight', // jQuery animate function property object
+                            easing: 'swing', // easing
+                            speed: 500 // opening & closing animation speed
+                        }
+                    });
                 },
                 beforeSend: function (obj) {
                 }
