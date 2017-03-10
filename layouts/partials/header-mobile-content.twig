@@ -1,23 +1,44 @@
+{% set user = '' %}
+{% if not _User.isGuest()%}
+    {% set user = _User.getUser()%}
+{% endif %}
 <div class="header-mobile">
     <div class="header-mobile__links">
         <div class="header-mobile__navigation">
-            {% set entries = craft.categories.group('channels') %}
-            {% set blogs = craft.categories.group('blogs') %}
+            {% set menuItems = blogData.blogHeaderMenu %}
             {% for i in 0..4 %}
-                {% set entry = entries[i] %}
-                <a href="{{ entry.url }}" class="header-mobile__navigation_link {{ channelObject[entry.title|lower] }}">{{ entry }}</a>
+                {% if menuItems[i] is defined %}
+                    {% set activeClass = (menuItems[i].link == _AppHelper.getServerUrl()) ? 'active' : ''%}
+                    {% set externalClass = (menuItems[i].isExternal) ? 'external-link' : '' %}
+                    {% set hasChildren = menuItems[i].children is defined and menuItems[i].children | length > 0 ? true : false %} 
+
+                    {% if hasChildren %}
+                        <div class="header-mobile__navigation_more header__navigation_link">
+                            <a class="header-mobile__navigation_link">{{ ((menuItems[i].label is empty) ? ((menuItems[i].pageTitle is empty)? menuItems[i].blogTitle : menuItems[i].pageTitle) : menuItems[i].label )}}  <i class="fa fa-angle-down"></i></a>
+                            <div class="header-mobile__navigation_more-box">
+                                {% for childItem in menuItems[i].children%}
+                                    {% set externalClass = (childItem.isExternal) ? 'external-link' : '' %}
+                                    {% set name = ((childItem.label is empty) ? ((childItem.pageTitle is empty)? childItem.blogTitle : childItem.pageTitle) : childItem.label) %}
+                                    <a href="{{childItem.link |raw}}" class="header-mobile__navigation_more-link {{externalClass}}"  {% if childItem.target != "" %}target="{{childItem.target}}"{% endif %}>{{ name }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href="{{menuItems[i].link |raw}}" class="header-mobile__navigation_link  {{activeClass}} {{externalClass}}" {% if menuItems[i].target != "" %}target="{{menuItems[i].target}}"{% endif %}>{{ ((menuItems[i].label is empty) ? ((menuItems[i].pageTitle is empty)? menuItems[i].blogTitle : menuItems[i].pageTitle) : menuItems[i].label )}} </a>
+                    {% endif %}
+                {% endif %}
             {% endfor %}
-            {% if entries[5] is defined %}
+            {% if menuItems[5] is defined %}
                 <div class="header-mobile__navigation_more">
                     <a class="header-mobile__navigation_link">More <i class="fa fa-angle-down"></i></a>
-                    <div class="header-mobile__navigation_more-box">
-                        {% for i in 5..(entries|length - 1)%}
-                            {% set entry = entries[i] %}
-                            <a href="{{ entry.url }}" class="header-mobile__navigation_more-link {{ channelObject[entry.title|lower] }}">{{ entry }}</a>
-                        {% endfor %}
+                    <div class="header__navigation_more-box">
+                        {% for i in 5..(menuItems |length - 1)%}
+                            {% set menuItem = menuItems[i] %}
+                            <a href="{{ menuItem.link }}" class="header-mobile__navigation_link">{{ ((menuItem.label is empty) ? ((menuItem.pageTitle is empty)? menuItem.blogTitle : menuItem.pageTitle) : menuItem.label )}}</a>
+                        {% endfor %}								
                     </div>
                 </div>
-            {% endif %}
+            {% endif %}	
         </div>
         <div class="header-mobile__singles">
             {% set singles = craft.entries('singles') %}

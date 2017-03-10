@@ -438,9 +438,6 @@ HomeController.Blog = (function ($) {
 HomeController.Article = (function ($) {
 
     var attachEvents = function () {
-
-        //$('.video-player').videoPlayer();
-
         $('.followArticleBtn').on('click', function (e) {
             e.preventDefault();
             var obj = $(this);
