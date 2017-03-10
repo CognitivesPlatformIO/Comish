@@ -4,7 +4,7 @@
         {% set imgHeight = 80 %}
         {% set btnStatus = "follow" %}
         {% set btnTxt = "Follow" %}
-        {% if not _User.isGuest() and _User.isUserFollowing('writer', writer.following['id']) %}
+        {% if not _User.isGuest() and _User.isUserFollowing('writer', follower.follower['id']) %}
             {% set buttonClass = 'active' %}
             {% set btnStatus = "unfollow" %}
             {% set btnTxt = "Unfollow" %}

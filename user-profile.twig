@@ -46,7 +46,7 @@
             </div>
             {% endif %} 
             {% if myFollowers is not empty and myFollowers | length > 0 %}
-            <div class="user-posts__title">Users following you:</div>
+            <div class="user-posts__title">Users following {{Html.encode(userDetails.firstname)}} {{Html.encode(userDetails.lastname)}}:</div>
             <div class="card-container">
                 <div class="card-row">
                     {{this.render('partials/user-profile/_user_followed_by.twig', {myFollowers : myFollowers}) | raw }}
