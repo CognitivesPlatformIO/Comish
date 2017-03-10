@@ -13,7 +13,7 @@
                     {% set hasChildren = menuItems[i].children is defined and menuItems[i].children | length > 0 ? true : false %} 
 
                     {% if hasChildren %}
-                        <div class="header-mobile__navigation_more header__navigation_link">
+                        <div class="header-mobile__navigation_more header-mobile__navigation_link">
                             <a class="header-mobile__navigation_link">{{ ((menuItems[i].label is empty) ? ((menuItems[i].pageTitle is empty)? menuItems[i].blogTitle : menuItems[i].pageTitle) : menuItems[i].label )}}  <i class="fa fa-angle-down"></i></a>
                             <div class="header-mobile__navigation_more-box">
                                 {% for childItem in menuItems[i].children%}
@@ -29,7 +29,7 @@
                 {% endif %}
             {% endfor %}
             {% if menuItems[5] is defined %}
-                <div class="header-mobile__navigation_more">
+                <div class="header-mobile__navigation_more header-mobile__navigation_link">
                     <a class="header-mobile__navigation_link">More <i class="fa fa-angle-down"></i></a>
                     <div class="header__navigation_more-box">
                         {% for i in 5..(menuItems |length - 1)%}

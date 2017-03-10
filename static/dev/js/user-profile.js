@@ -13,7 +13,20 @@
                 var status = $(obj).data('status');
                 $(obj).get(0).lastChild.nodeValue = " " + status.substr(0,1).toUpperCase()+status.substr(1);
                 ($(obj).data('status') === 'follow') ? $(obj).html("Follow") : $(obj).html("Unfollow");
-                ($(obj).data('status') === 'follow') ? $(obj).data('status') : 'Follow';                
+                var message = ($(obj).data('status') === 'follow') ? 'Blog unfollowed successfully' : 'Blog followed successfully';
+                noty({
+                    type: 'success',
+                    text: message,
+                    layout: 'topRight',
+                    timeout: 2000,
+                    dismissQueue: true,
+                    animation: {
+                        open: 'animated bounceInRight', // jQuery animate function property object
+                        close: 'animated bounceOutRight', // jQuery animate function property object
+                        easing: 'swing', // easing
+                        speed: 500 // opening & closing animation speed
+                    }
+                });               
             },
             beforeSend: function (obj) {
                 $(obj).html('please wait...');
@@ -34,7 +47,20 @@
                 var status = $(obj).data('status');
                 $(obj).get(0).lastChild.nodeValue = " " + status.substr(0,1).toUpperCase()+status.substr(1);
                 ($(obj).data('status') === 'follow') ? $(obj).html("Follow") : $(obj).html("Unfollow");
-                ($(obj).data('status') === 'follow') ? $(obj).data('status') : 'Follow'; 
+                var message = ($(obj).data('status') === 'follow') ? 'User unfollowed successfully' : 'User followed successfully';
+                noty({
+                    type: 'success',
+                    text: message,
+                    layout: 'topRight',
+                    timeout: 2000,
+                    dismissQueue: true,
+                    animation: {
+                        open: 'animated bounceInRight', // jQuery animate function property object
+                        close: 'animated bounceOutRight', // jQuery animate function property object
+                        easing: 'swing', // easing
+                        speed: 500 // opening & closing animation speed
+                    }
+                }); 
             },
             beforeSend: function (obj) {
                 $(obj).html('please wait...');

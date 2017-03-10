@@ -160,7 +160,19 @@
         shareLinkBox.select();
         try {
             var successful = document.execCommand('copy');
-            $.fn.General_ShowNotification({message: "Link copied successfully"});
+            noty({
+                type: "success",
+                text: "Link copied successfully",
+                layout: 'topRight',
+                timeout: 2000,
+                dismissQueue: true,
+                animation: {
+                    open: 'animated bounceInRight', // jQuery animate function property object
+                    close: 'animated bounceOutRight', // jQuery animate function property object
+                    easing: 'swing', // easing
+                    speed: 500 // opening & closing animation speed
+                }
+            });
         } catch (err) {
             console.log('Oops, unable to copy');
         }
@@ -168,48 +180,9 @@
 
 
     if ($('.dropdown-toggle')) {
-        $('.dropdown-toggle').dropdown()
+        $('.dropdown-toggle').dropdown();
     }
-    ;
-
-    // $('.forceLoginModal').loginModal({
-    //     onLoad: function () {
-    //         $("#loginForm").validateLoginForm();
-    //         $("#signupForm").validateSignupForm();
-    //     }
-    // });
-    //
-    // /*
-    //  * Follow Blog on article page
-    //  */
-    // $('.followArticleBtn').followBlog({
-    //     onSuccess: function (data, obj) {
-    //        ($(obj).data('status') === 'follow') ? $(obj).html("Follow +") : $(obj).html("Following -");
-    //         var message = ($(obj).data('status') === 'follow') ? 'Unfollow' : 'Follow';
-    //         $.fn.General_ShowNotification({message: message + " blog successfully."});
-    //     },
-    //     beforeSend: function (obj) {
-    //         $(obj).html('please wait...');
-    //     }
-    // });
-
-
-    // $('.shareIcons').SocialShare({
-    //     onLoad: function (obj) {
-    //         var title = obj.parents('div.article').find('.card__news-category').text();
-    //         var url = obj.parents('div.article').find('a').attr('href');
-    //         var content = obj.parents('div.article').find('.card__news-description').text();
-    //         $('.rrssb-buttons').rrssb({
-    //             title: title,
-    //             url: url,
-    //             description: content
-    //         });
-    //         setTimeout(function () {
-    //             rrssbInit();
-    //         }, 10);
-    //     }
-    // });
-
+        
     $("#owl-thumbnails").owlCarousel({
         items: 2,
         itemsDesktop: [1199, 2],
@@ -266,31 +239,6 @@
             }
         });
     });
-
-
-    // /**
-    //  * Update Social Post From Listing
-    //  */
-    // $('.editSocialPost').on('click', function (e) {
-    //     e.preventDefault();
-    //     var elem = $(this);
-    //     var url = elem.data('url');
-    //     var popup = window.open(url, '_blank', 'toolbar=no,scrollbars=yes,resizable=false,width=360,height=450');
-    //     popup.focus();
-    //
-    //     var intervalId = setInterval(function () {
-    //         if (popup.closed) {
-    //             clearInterval(intervalId);
-    //             var socialId = elem.parents('a').data('id');
-    //             if($('#updateSocial'+socialId).data('update') == '1') {
-    //                 $().General_ShowNotification({message: 'Social Post(s) updated successfully.'});
-    //             }
-    //         }
-    //     }, 50);
-    //
-    //     return;
-    // });
-
 
     // Landing page
     $('.landing-page-header__arrow').on('click', function () {

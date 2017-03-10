@@ -31,7 +31,7 @@
                         {% set hasChildren = menuItems[i].children is defined and menuItems[i].children | length > 0 ? true : false %} 
 
                         {% if hasChildren %}
-                            <div class="header__navigation_more header__navigation_link">
+                            <div class="header__navigation_more header__navigation_link channel-{{menuItems[i].id}}">
                                 {{ ((menuItems[i].label is empty) ? ((menuItems[i].pageTitle is empty)? menuItems[i].blogTitle : menuItems[i].pageTitle) : menuItems[i].label )}}  <i class="fa fa-angle-down"></i>
                                 <div class="header__navigation_more-box-container">
                                     <div class="header__navigation_more-box-tip"></div>
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                         {% else %}
-                            <a href="{{menuItems[i].link |raw}}" class="header__navigation_link  {{activeClass}} {{externalClass}}" {% if menuItems[i].target != "" %}target="{{menuItems[i].target}}"{% endif %}>{{ ((menuItems[i].label is empty) ? ((menuItems[i].pageTitle is empty)? menuItems[i].blogTitle : menuItems[i].pageTitle) : menuItems[i].label )}} </a>
+                            <a href="{{menuItems[i].link |raw}}" class="header__navigation_link  channel-{{menuItems[i].id}} {{activeClass}} {{externalClass}}" {% if menuItems[i].target != "" %}target="{{menuItems[i].target}}"{% endif %}>{{ ((menuItems[i].label is empty) ? ((menuItems[i].pageTitle is empty)? menuItems[i].blogTitle : menuItems[i].pageTitle) : menuItems[i].label )}} </a>
                         {% endif %}
                     {% endif %}
                 {% endfor %}
