@@ -441,7 +441,7 @@
 
     // Moile header popups
     $('.header-mobile__navigation_more').on('click', function () {
-        $('.header-mobile__navigation_more-box').toggleClass('active');
+        $(this).find('.header-mobile__navigation_more-box').toggleClass('active');
         $('#popup-overlay').addClass('active');
     });
 
