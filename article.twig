@@ -97,7 +97,9 @@
                 {% set readingTime = Helper.getEstimatedReadingTime(article.content)%}
                 <div class="article__info_tab">{{Helper.renderReadingTime(readingTime) | raw}}</div>
                 <div class="article__info_tab">{{article.publishedDate}}</div>
-                <a href="javascript:void(0);" class="article__info_tab article__info_tab--comments">{{article.total['comment']}} Comments</a>
+                {% if network.thirdPartyIntegrations['disqus'] | length > 0 and network.thirdPartyIntegrations['disqus']['shortName'] != '' %}
+                    <a href="javascript:void(0);" class="article__info_tab article__info_tab--comments">{{article.total['comment']}} Comments</a>
+                {% endif %}
             </div>
         </div>
     </div>
