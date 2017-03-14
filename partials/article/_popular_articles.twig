@@ -1,8 +1,8 @@
 {% set popularArticles = _Article.getPopularArticles({ limit: 3, excludeArticleIds : articleId }) %}
-{% if popularArticles|length > 0 %}
-<div class="article__related-title_container">
+<div class="article__related-title_container {% if popularArticles|length <= 0 %} hide {% endif %}">
     <div class="text-center article__related-title">Articles You May Interested In</div>
 </div>
+{% if popularArticles|length > 0 %}
 <div class="article__related-container">
     <div class="card-container">
         <div class="card-row">
