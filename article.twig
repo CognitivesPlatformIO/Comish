@@ -112,8 +112,9 @@
         </div>
         <div class="article__content">
             <div class="article__intro">
-                {{article.content | raw}}
+                {{article.title | raw}}
             </div>
+            {{article.content | raw}}
             <div class="article__comments">
                 <!-- Disqus Plugin Render Here -->
                 {% if network.thirdPartyIntegrations['disqus'] | length > 0 and network.thirdPartyIntegrations['disqus']['shortName'] != '' %}

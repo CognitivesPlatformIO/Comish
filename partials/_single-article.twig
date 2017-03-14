@@ -12,6 +12,10 @@
         {% set imgWidth = 570 %}
         {% set imgHeight = 470 %}
     {% endif %}
+    {% if containerClass == 'col-full' %}
+        {% set imgWidth = 1360 %}
+        {% set imgHeight = 430 %}
+    {% endif %}
     {% set articleImg = '' %}
     {% set bgImg = '' %}
     {% set cardImageClass = 'card__no-image' %}
