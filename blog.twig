@@ -21,8 +21,8 @@
 <div class="blog home">
     <div class="blog__headline-container {% if not hasBlogImage %}no-image{% endif %}" {%if hasBlogImage%}style="background-image:url('{{blogImage}}');"{%endif%}>
         <div class="blog__headline-overlay">
-            <div class="blog__headline">{{blogInfo.owner['display_name']}}'s Posts</div>
-            <div class="blog__author-bio">{{ blogInfo.owner['bio']|striptags[:120] ~ '...' }}</div>
+            <div class="blog__headline">{{blogInfo.title}}</div>
+            <div class="blog__author-bio">{{Helper.shortStr(blogInfo.shortDescription, 150, false, true) | raw}}</div>
         </div>
     </div>
     {% set blogOwnerImage = '' %}
