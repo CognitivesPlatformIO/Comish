@@ -3,7 +3,7 @@
 {% set limit = 20 %}
 {% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 {% set articles = articlesArr.articles %}
-<h1>TEST LIVE PUSH</h1>
+
 {{this.registerJs("HomeController.listing();")}}
 <div class="home ">
     {% if articles|length > 0 %}
