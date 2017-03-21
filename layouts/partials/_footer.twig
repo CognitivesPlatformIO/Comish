@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="footer__right">
-            {{ this.render('social-links.twig', {network: networkData, blogInfo: blogInfo}) | raw }}
+            {{ this.render('social-links.twig', {network: network, blogInfo: blogInfo}) | raw }}
             {% set menuItems = blogData.blogFooterMenu %}
             {% for i in 0..4 %}
                 {% if menuItems[i] is defined %}
