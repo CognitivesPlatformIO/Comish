@@ -144,24 +144,27 @@
     opacity: 0.99;
     margin: 0 auto;
     @include image-background;
+    height: 500px;
+    @include tablet {
+      height: 600px;
+    }
+    @include tablet-lg {
+      height: 600px;
+    }
+    @include desktop {
+      height: 690px;
+    }
+    @include desktop-lg {
+      height: 690px;
+    }
     &_color-container {
       background-color: $theme-color;
       width: 100%;
     }
   }
   &__header-text {
-    margin-top: 130px;
-    margin-bottom: 74px;
-    margin: 130px 0px 74px;
+    margin: 0px 0px 74px;
     max-width: 100%;
-
-    @include tablet {
-      margin-top: 260px;
-      margin-bottom: 103px;
-    }
-    @include desktop {
-      margin-top: 360px;
-    }
   }
   &__channel {
     @include channel;
@@ -178,12 +181,17 @@
   &__headline {
     text-shadow: 0 0 12px rgba(32, 32, 32, 0.5);
     max-width: 770px;
-    height: 144px;
     overflow: hidden;
-    @include text-lg($color: $white, $font-multiplier: 2.5);
+    @include text-lg($color: $white, $font-multiplier: 2.2, $line-height: 1.1);
     margin-bottom: 27px;
+    max-height: 250px;
     @include tablet {
-      height: 150px;
+      max-height: 295px;
+    }
+    @include desktop {
+      max-height: 370px;
+    }
+    @include tablet {
       @include text-lg($color: $white, $letter-spacing: -0.5px);
     }
   }
@@ -226,26 +234,25 @@
       padding: 7px 0px;
       box-shadow: 0 0 15px 0 rgba(32, 32, 32, 0.03);
 	    border: solid 1px #f3f3f3;
-      width: 300px;
-      @include mobile {
-        width: 370px;
-      }
     }
     &_tab {
-      @include text-md($color: #535659, $font-weight: 300, $font-multiplier: 0.667, $line-height: 1, $letter-spacing: -0.2px);
-      width: 33.33%;
+      @include text-md($color: #535659, $font-weight: 800, $font-multiplier: 0.667, $line-height: 1, $letter-spacing: -0.2px);
+      display: inline-block;
       text-align: center;
-      padding: 6px 0px;
+      padding: 6px 20px;
       border-right: 1px solid #eceaea;
       display: flex;
       align-items: center;
       justify-content: center;
+			&:last-child {
+				border: none;
+			}
       @include mobile {
         @include text-md($color: #535659, $font-weight: 300, $font-multiplier: 0.778, $line-height: 1, $letter-spacing: -0.2px);
       }
       &--comments {
         @include text-md($color: #515356, $font-weight: 500, $font-multiplier: 0.667, $line-height: 1, $letter-spacing: -0.2px);
-        border: none;
+
         @include mobile {
           @include text-md($color: #515356, $font-weight: 500, $font-multiplier: 0.778, $line-height: 1, $letter-spacing: -0.2px);
         }
