@@ -16,8 +16,14 @@ UserArticlesController.Load = (function ($) {
         $('.loadMoreMyArticles').on('click', function (e) {
             e.preventDefault();
             var btnObj = $(this);
+            
+            var page = parseInt($('.LoadMyArticles').data('page'));
+            if (isNaN(page) || page < 0) {
+               page = 1;
+            }
 
-            $.fn.Ajax_LoadMoreMyArticles({
+            $.fn.loadMoreAuthUserArticles({
+                offset: page,
                 onSuccess: function (data, textStatus, jqXHR) {
                     if (data.success == 1) {
                         if (data.articles.length < 20) {
@@ -33,7 +39,7 @@ UserArticlesController.Load = (function ($) {
                                 data.articles[i]['blogClass']= data.articles[i]['blog']['title'].replace(' ', '').toLowerCase();
                             }
        
-                            var ImageUrl = $.image({media:data.articles[i]['featuredMedia'], mediaOptions:{width: 570 ,height:470, crop: 'limit'} });
+                            var ImageUrl = $.fn.image({media:data.articles[i]['featuredMedia'], mediaOptions:{width: 570 ,height:470, crop: 'limit'} });
                             data.articles[i]['imageUrl'] = ImageUrl;
                             
                             Handlebars.registerHelper('encode', function(options) {

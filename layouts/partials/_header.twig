@@ -114,9 +114,9 @@
 	                    <a class="header__user_link account-modal-link link--profile">Profile</a>
 	                    <a href="#" class="header__user_link account-modal-link link--account">My Account</a>
                             {% if _User.isAdminUser() %}
-                                <a class="header__user_link" href="http://{{network.defaultDomain['domain']}}/admin">Admin</a>
+                                <a class="header__user_link" href="http://{{network.defaultDomain['domain']}}/admin" target="_blank">Admin</a>
                             {% endif %}
-	                    <a class="header__user_link sign-out" href="{{ logoutUrl }}">Sign Out</a>
+	                    <a class="header__user_link sign-out" href="{{_AppHelper.getLogoffUrl()}}">Sign Out</a>
 	                </div>
 	            </div>
                     {% endif %}

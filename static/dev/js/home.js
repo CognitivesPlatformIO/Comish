@@ -70,6 +70,12 @@ HomeController.Listing = (function ($) {
             var obj = $(this);
             var isSocial = $(obj).data('social');
             var articleGuid = $(obj).data('guid');
+			
+			var msgStr = (isSocial == 1) ? "Do you really want to delete this article?" : "Do you really want to hide this article?";
+			var result = confirm(msgStr);
+			if (result !== true) {
+				return;
+			}
 
             $.fn.deleteArticle({
                 articleGuid: articleGuid,
