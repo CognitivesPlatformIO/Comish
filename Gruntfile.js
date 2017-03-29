@@ -24,7 +24,7 @@ module.exports = function(grunt) {
                         'static/js/handlebars-v4.0.5.js',
                         'static/js/plugins/bootstrap-modalmanager.js',
                         'static/js/plugins/bootstrap-modal.js',
-                        '../../static/deploy/core.min.js',
+                        '../../static/dist/deploy/core.min.js',
                         'static/dev/js/_article-templates.js',
                         'static/dev/js/home.js',
                         'static/dev/js/user-articles.js',
