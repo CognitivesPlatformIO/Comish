@@ -1,5 +1,5 @@
 {% if _AppHelper.getApplicationEnv() == 'PROD'%}
-    <script type="text/javascript" src="{{networkData.templatePath}}/static/deploy/theme.min.js?rel=1490777015634"></script>
+    <script type="text/javascript" src="{{networkData.templatePath}}/static/deploy/theme.min.js?rel=1490785431715"></script>
 {% else %}
 <script type="text/javascript" src="{{networkData.templatePath}}/static/js/index.js"></script>
 <script type="text/javascript" src="{{networkData.templatePath}}/static/js/plugins/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
@@ -35,7 +35,6 @@
 <script type="text/javascript" src="{{_AppHelper.getAssetsSDKPath()}}/js/yii/yii.captcha.js"></script>
 -->
 
-<script type="text/javascript" src="{{_AppHelper.getAssetsStaticPath()}}/deploy/core.min.js"></script>
 
 <!-- App scripts -->
 <script type="text/javascript" src="{{networkData.templatePath}}/static/dev/js/_article-templates.js"></script>
@@ -51,3 +50,4 @@
 
 
 {% endif %}
+<script type="text/javascript" src="http://d31nhj1t453igc.cloudfront.net/sdk/sdk-v1.0.0.min.js"></script>
