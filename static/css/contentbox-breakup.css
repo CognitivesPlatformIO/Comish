@@ -7,6 +7,7 @@
 }
 .static-page__body {
     margin-top: 130px;
+    margin-bottom: 100px;
 }
 .content_box_page .content_area {
     padding: 0px !important;
@@ -94,9 +95,6 @@
 }
 .content_box_page h1 span, .content_box_page h2 span, .content_box_page h3 span, .content_box_page h4 span, .content_box_page h5 span, .content_box_page h6 span, .content_box_page p span {
     font-size: inherit !important;
-}
-.content_box_page h1, .content_box_page h2, .content_box_page h3, .content_box_page h4, .content_box_page h5, .content_box_page h6 {
-    font-weight: 600;
 }
 
 
