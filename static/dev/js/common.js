@@ -416,11 +416,11 @@
         $(this).toggleClass('active');
     });
 
-    $('.header__user_image, .header__user_text').on('click', function (e) {
+    /* $('.header__user_image, .header__user_text').on('click', function (e) {
         e.preventDefault();
         $('.account-modal__container').addClass('active');
         $('body').addClass('active');
-    });
+    }); */
 
     // Header search focus.
     $('.header__search-form_input').on('focus', function () {

@@ -159,14 +159,14 @@
                             </div>
                             {% if social.media['type'] == 'video' and social.media['videoUrl'] is not empty %}
                                 <div class="card__text-wrap">
-                                    <p class="card__headline" id="updateSocial{{article.socialId}}" data-update="0">{{ social.content [:50] ~ '...'  | raw }}</p>
+                                    <p class="card__headline" id="updateSocial{{article.socialId}}" data-update="0">{{ social.content [:80] ~ '...'  | raw }}</p>
                                 </div>
                                 {% set socialIcon=social.source %}
                                 {% if social.source == _SocialFeed.getSocialArticleSourceIsYoutube() %}
                                     {% set socialIcon= 'youtube-play' %}
                                 {% endif %}
                             {% else %}
-                                <p class="card__headline" id="updateSocial{{article.socialId}}" data-update="0">{{ social.content | raw }}</p>
+                                <p class="card__headline" id="updateSocial{{article.socialId}}" data-update="0">{{ social.content [:80] ~ '...'  | raw }}</p>
                             {% endif %}
                             <div class="card__info">
                                 <div class="card__info_separator"></div>
