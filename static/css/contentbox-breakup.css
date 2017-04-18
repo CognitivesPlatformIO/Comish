@@ -68,6 +68,9 @@
     flex-direction: column;
     padding: 0 30px;
 }
+.content_box_page .header__search-button .fa {
+	top: -8px;
+}
 /* 
 
 .content_box_page .is-section .column.full h1, .content_box_page .is-section.is-section-100 .column.third h1 {
