@@ -44,7 +44,7 @@
         font-size: 13px;
     }
     li {
-        @include text-md($color: $article-body-text, $line-height: 1.67, $font-weight: 400);
+        @include text-md($color: $article-body-text, $line-height: 1.5, $font-weight: 400);
     }
     ol, ul {
         overflow: hidden;
