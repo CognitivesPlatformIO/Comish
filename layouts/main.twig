@@ -128,14 +128,14 @@
         {% endif %}
         
         {% if themeColors.navigationColor != "" %}
-            .header__navigation_link, .footer__navigation_link {
+            .header__navigation_link, .footer__navigation_link, .header__navigation_more, .footer__navigation_more {
                 color: {{themeColors.navigationColor}} !important;
             }
         {% endif %}
         
         
         {% if themeColors.navigationHoverColor != "" %}
-            .header__navigation_link:hover, .footer__navigation_link:hover  {
+            .header__navigation_link:hover, .footer__navigation_link:hover, .header__navigation_more:hover, .footer__navigation_more:hover  {
                 color: {{themeColors.navigationHoverColor}} !important;
             }
         {% endif %}
