@@ -28,12 +28,21 @@
         {% set isPage = 'content_box_page' in _Page.getBodyClass() %}
 		
 		{% set bodyClass = _Page.getBodyClass() | replace({('article') : 'article__page'}) %}
-        
+        {% set primaryFont = networkData['styling']['fonts']['primaryFont'] %}
+        {% set secFont = networkData['styling']['fonts']['secondaryFont'] %}
+
+        {% if primaryFont != "" %}
+            <link href='https://fonts.googleapis.com/css?family={{primaryFont}}' rel='stylesheet' type='text/css'>
+        {% endif %}
+        {% if secFont != "" %}
+            <link href='https://fonts.googleapis.com/css?family={{secFont}}' rel='stylesheet' type='text/css'>
+        {% endif %}
+		
         <link rel="home" href="http://{{networkData.defaultDomain['domain']}}" />
         <link rel="alternate" type="application/rss+xml" title="{{_Network.getNetworkTitle()}} -  RSS Feeds" href="http://{{networkData.defaultDomain['domain']}}/feed/rss"/>
 
         {% if _AppHelper.getApplicationEnv() == 'PROD'%}
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1492687528239" type="text/css" media="all">
+            <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1492588078417" type="text/css" media="all">
         {% else %}
             <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/js/plugins/jquery.fancybox/source/jquery.fancybox.css" />
             <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/js/plugins/jquery.noty-2.3.8/demo/animate.css" />
@@ -48,7 +57,7 @@
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/box/box.css" rel="stylesheet" type="text/css" />
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbuilder/contentbuilder.css" rel="stylesheet" type="text/css" />
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbox/contentbox.css" rel="stylesheet" type="text/css" />
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/contentbox-breakup.css?rel=1492687528239" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/contentbox-breakup.css?rel=1492588078417" type="text/css" media="all" />
         {% endif %}
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Yantramanav:300,400,500,700,900" rel="stylesheet">
         <style>
@@ -68,14 +77,15 @@
         </style>
         
         {% set themeColors = networkData['styling']['colours'] %}
+        
         <style type="text/css">
         {% if primaryFont != "" %}
-            body, .body, p {
+            body, .body, p, .footer__additional-link, .footer__copyright, .article p, .article li, figcaption, .blog__author-bio {
                 font-family: "{{primaryFont | replace({'+': ' '})}}" !important;
             }
         {% endif %}
         {% if secFont != "" %}
-            h1, h2, h3, h4, h5, a.header__navigation-link {
+            h1, h2, h3, h4, h5, .header__navigation-link, .article__headline, .blog__headline, .contact__header_overlay, .static-page__related-title {
                 font-family: "{{secFont | replace({'+': ' '})}}" !important;
             }
         {% endif %}
@@ -90,53 +100,51 @@
             }
         {% endif %}
         {% if themeColors.headingColor != "" %}
-            h1, h2, h3, h4, h5 {
+            h1, h2, h3, h4, h5, h6, .article__headline, .blog__headline, .contact__header_overlay, .static-page__related-title {
                 color: {{themeColors.headingColor}} !important;
             }
         {% endif %}
-        {% if themeColors.navigationColor != "" %}
-            .header__search-text, a.header__navigation-link {
-                color: {{themeColors.navigationColor}} !important;
-            }
-        {% endif %}
-        {% if themeColors.navigationHoverColor != "" %}
-            a.header__navigation-link:hover {
-                color: {{themeColors.navigationHoverColor}} !important;
-            }
-        {% endif %}
+            
         {% if themeColors.navigationActiveColor != "" %}
-            a.header__navigation-link.header__navigation-selected {
+            .header__navigation_link.active {
                 color: {{themeColors.navigationActiveColor}} !important;
             }
         {% endif %}
         {% if themeColors.navigationBgColor != "" %}
-        .header__navigation {
+        .header__content {
             background-color: {{themeColors.navigationBgColor}} !important;
         }
         {% endif %}
-        {% if themeColors.headerBgColor != "" %}
-        .header__heading {
-            background-color: {{themeColors.headerBgColor}} !important;
-        }
-        {% endif %}
+        
         {% if themeColors.footerBgColor != "" %}
         .footer {
             background-color: {{themeColors.footerBgColor}} !important;
         }
         {% endif %}
         {% if themeColors.pageBgColor != "" %}
-        .body, .body > .section {
+        .body {
             background-color: {{themeColors.pageBgColor}} !important;
         }
-        .sub_header {
-            background-color: {{themeColors.pageBgColor}} !important;
-        }
+        {% endif %}
+        
+        {% if themeColors.navigationColor != "" %}
+            .header__navigation_link, .footer__navigation_link, .header__navigation_more, .footer__navigation_more {
+                color: {{themeColors.navigationColor}} !important;
+            }
+        {% endif %}
+        
+        
+        {% if themeColors.navigationHoverColor != "" %}
+            .header__navigation_link:hover, .footer__navigation_link:hover, .header__navigation_more:hover, .footer__navigation_more:hover  {
+                color: {{themeColors.navigationHoverColor}} !important;
+            }
         {% endif %}
 
         {% set customCss = networkData['styling']['customStyleSheet'] %}
         {% if customCss != "" %}
                 {{customCss | raw }}
         {% endif %}
+        
         </style>
         
         {% if blogData.settings['GoogleAnalyticsID'] is defined and  blogData.settings['GoogleAnalyticsID'] is not empty  %}
