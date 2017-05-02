@@ -734,7 +734,7 @@
                     if (data.success === 1) {
                         $('.forgotten-password-modal__content').removeClass('active');
                         $('.forgotten-password-modal__content--email-sent').addClass('active');
-                        $('.forgotten-password-modal__content--email-sent').find('div').html('Password Reset Successfully!!');
+                        $('.forgotten-password-modal__content--email-sent').find('div').html('Password has beed Reset Successfully!!');
                         $('.forgotten-password-modal__container').addClass('success');
                     }
                 },
