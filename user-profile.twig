@@ -1,5 +1,6 @@
 {{ set(this, 'title', 'User Profile') }}
 
+{% set network = _Network.getNetworkData() %}
 {% set profileImage =_Media.getMediaUrl(userDetails.media, 500, 500, {crop: 'thumb', gravity: 'face', type:'user'} )%}
 <div class="user-posts">
     <div class="user-posts-sidebar__wrap">
@@ -34,7 +35,7 @@
             <div class="user-posts__title">Follows:</div>
             <div class="card-container">
                 <div class="card-row">
-                    {{this.render('partials/user-profile/_user_following_blogs.twig', {myBlogs : myBlogs}) | raw }}
+                    {{this.render('partials/user-profile/_user_following_blogs.twig', {myBlogs : myBlogs, network: network}) | raw }}
                 </div>
             </div>
             {% endif %}   
@@ -42,7 +43,7 @@
             <div class="user-posts__title">Following writers:</div>
             <div class="card-container">
                 <div class="card-row">
-                    {{this.render('partials/user-profile/_user_following_writer.twig', {myFollowings : myFollowings}) | raw }}
+                    {{this.render('partials/user-profile/_user_following_writer.twig', {myFollowings : myFollowings, , network: network}) | raw }}
                 </div>
             </div>
             {% endif %} 
@@ -50,7 +51,7 @@
             <div class="user-posts__title">Users following {{Html.encode(userDetails.firstname)}} {{Html.encode(userDetails.lastname)}}:</div>
             <div class="card-container">
                 <div class="card-row">
-                    {{this.render('partials/user-profile/_user_followed_by.twig', {myFollowers : myFollowers}) | raw }}
+                    {{this.render('partials/user-profile/_user_followed_by.twig', {myFollowers : myFollowers, network: network}) | raw }}
                 </div>
             </div>
             {% endif %} 
