@@ -195,9 +195,7 @@
             {{ this.render('partials/_footer.twig', {network : networkData, blogData: blogData}) | raw }}
         </div>
         <div id="popup-overlay"></div>
-        {% if not _Network.isNetworkClosed(networkData)%}
-            {{this.render('partials/account-modal.twig',{network : networkData}) | raw }}
-        {% endif %}
+        {{this.render('partials/account-modal.twig',{network : networkData}) | raw }}
         {{ this.render('partials/_javascript.twig', {networkData : networkData}) | raw }}
         <div class="SwappingHelper" style="display:none">
             <div style="width: 270px; height: 105px; padding: 3px; background-color: #FFF; max-width: 270px; max-height: 105px; overflow: hidden; z-index: 999 !important;">
