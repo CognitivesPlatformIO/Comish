@@ -40,19 +40,15 @@
                 </div>
             {% endif %}	
         </div>
-        <div class="header-mobile__singles">
-            {% set singles = craft.entries('singles') %}
-            {% for single in singles if single.displayInNav %}
-                <a href="{{ single.url }}" class="header-mobile__singles_link">{{ single.title }}</a>
-            {% endfor %}
-        </div>
         <div class="header-mobile__user">
             {% if _User.isGuest() %}
-                <div class="header__user_login" id="login">
-                    <a class="header__login__link">Login</a>
-                    |
-                    <a class="header__login__link header__login__link--signup sign-up__link">Sign Up</a>
-                </div>
+                {% if not _Network.isNetworkClosed(networkData)%}
+                    <div class="header__user_login" id="login">
+                        <a class="header__login__link">Login</a>
+                        |
+                        <a class="header__login__link header__login__link--signup sign-up__link">Sign Up</a>
+                    </div>
+                {% endif %}
             {% else %}
                 {% set profileImage = ''%}
                 {% set userImage = '' %}
@@ -60,7 +56,7 @@
                 {% set profileImage = _Media.getMediaUrl(user.profileMedia, 80, 80, {radius: 'max', gravity: 'face', 'crop': 'thumb', 'type' : 'user'}) %}
                 <img class="header__user_image" src="{{profileImage}}" alt="User image"/>
                 <div class="header__user_text">user <i class="fa fa-angle-down"></i></div>
-                {% endif %}
+            {% endif %}
         </div>
     </div>
     <form class="header-mobile__search" action="{{ url('search') }}">

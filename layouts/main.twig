@@ -26,12 +26,23 @@
         {% endif %}
         
         {% set isPage = 'content_box_page' in _Page.getBodyClass() %}
-        
+		
+		{% set bodyClass = _Page.getBodyClass() | replace({('article') : 'article__page'}) %}
+        {% set primaryFont = networkData['styling']['fonts']['primaryFont'] %}
+        {% set secFont = networkData['styling']['fonts']['secondaryFont'] %}
+
+        {% if primaryFont != "" %}
+            <link href='https://fonts.googleapis.com/css?family={{primaryFont}}' rel='stylesheet' type='text/css'>
+        {% endif %}
+        {% if secFont != "" %}
+            <link href='https://fonts.googleapis.com/css?family={{secFont}}' rel='stylesheet' type='text/css'>
+        {% endif %}
+		
         <link rel="home" href="http://{{networkData.defaultDomain['domain']}}" />
         <link rel="alternate" type="application/rss+xml" title="{{_Network.getNetworkTitle()}} -  RSS Feeds" href="http://{{networkData.defaultDomain['domain']}}/feed/rss"/>
 
         {% if _AppHelper.getApplicationEnv() == 'PROD'%}
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1492070698446" type="text/css" media="all">
+            <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1493289102842" type="text/css" media="all">
         {% else %}
             <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/js/plugins/jquery.fancybox/source/jquery.fancybox.css" />
             <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/js/plugins/jquery.noty-2.3.8/demo/animate.css" />
@@ -46,7 +57,7 @@
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/box/box.css" rel="stylesheet" type="text/css" />
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbuilder/contentbuilder.css" rel="stylesheet" type="text/css" />
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbox/contentbox.css" rel="stylesheet" type="text/css" />
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/contentbox-breakup.css" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/contentbox-breakup.css?rel=1493289102842" type="text/css" media="all" />
         {% endif %}
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Yantramanav:300,400,500,700,900" rel="stylesheet">
         <style>
@@ -64,7 +75,78 @@
                 src: url('/static/fonts/Futura-Bold.ttf');
             }
         </style>
+        
+        {% set themeColors = networkData['styling']['colours'] %}
+        
+        <style type="text/css">
+        {% if primaryFont != "" %}
+            body, .body, p, .footer__additional-link, .footer__copyright, .article p, .article li, figcaption, .blog__author-bio {
+                font-family: "{{primaryFont | replace({'+': ' '})}}" !important;
+            }
+        {% endif %}
+        {% if secFont != "" %}
+            h1, h2, h3, h4, h5, .header__navigation-link, .article__headline, .blog__headline, .contact__header_overlay, .static-page__related-title {
+                font-family: "{{secFont | replace({'+': ' '})}}" !important;
+            }
+        {% endif %}
+        {% if themeColors.linkColor != "" %}
+            a {
+                color: {{themeColors.linkColor}} !important;
+            }
+        {% endif %}
+        {% if themeColors.linkHoverColor != "" %}
+            a:hover {
+                color: {{themeColors.linkHoverColor}} !important;
+            }
+        {% endif %}
+        {% if themeColors.headingColor != "" %}
+            h1, h2, h3, h4, h5, h6, .article__headline, .blog__headline, .contact__header_overlay, .static-page__related-title {
+                color: {{themeColors.headingColor}} !important;
+            }
+        {% endif %}
+            
+        {% if themeColors.navigationActiveColor != "" %}
+            .header__navigation_link.active {
+                color: {{themeColors.navigationActiveColor}} !important;
+            }
+        {% endif %}
+        {% if themeColors.navigationBgColor != "" %}
+        .header__content {
+            background-color: {{themeColors.navigationBgColor}} !important;
+        }
+        {% endif %}
+        
+        {% if themeColors.footerBgColor != "" %}
+        .footer {
+            background-color: {{themeColors.footerBgColor}} !important;
+        }
+        {% endif %}
+        {% if themeColors.pageBgColor != "" %}
+        .body {
+            background-color: {{themeColors.pageBgColor}} !important;
+        }
+        {% endif %}
+        
+        {% if themeColors.navigationColor != "" %}
+            .header__navigation_link, .footer__navigation_link, .header__navigation_more, .footer__navigation_more {
+                color: {{themeColors.navigationColor}} !important;
+            }
+        {% endif %}
+        
+        
+        {% if themeColors.navigationHoverColor != "" %}
+            .header__navigation_link:hover, .footer__navigation_link:hover, .header__navigation_more:hover, .footer__navigation_more:hover  {
+                color: {{themeColors.navigationHoverColor}} !important;
+            }
+        {% endif %}
 
+        {% set customCss = networkData['styling']['customStyleSheet'] %}
+        {% if customCss != "" %}
+                {{customCss | raw }}
+        {% endif %}
+        
+        </style>
+        
         {% if blogData.settings['GoogleAnalyticsID'] is defined and  blogData.settings['GoogleAnalyticsID'] is not empty  %}
             <!-- Google Analytics -->
             <script>
@@ -88,7 +170,7 @@
         {{ this.head() }}
     </head>
 
-    <body class="body {{_Page.getBodyClass()}}">
+    <body class="body {{bodyClass}}">
         {{ this.beginBody() }}
 
         <!-- Google Tag Manager(noscript) -->
@@ -113,7 +195,9 @@
             {{ this.render('partials/_footer.twig', {network : networkData, blogData: blogData}) | raw }}
         </div>
         <div id="popup-overlay"></div>
-        {{this.render('partials/account-modal.twig',{network : networkData}) | raw }}
+        {% if not _Network.isNetworkClosed(networkData)%}
+            {{this.render('partials/account-modal.twig',{network : networkData}) | raw }}
+        {% endif %}
         {{ this.render('partials/_javascript.twig', {networkData : networkData}) | raw }}
         <div class="SwappingHelper" style="display:none">
             <div style="width: 270px; height: 105px; padding: 3px; background-color: #FFF; max-width: 270px; max-height: 105px; overflow: hidden; z-index: 999 !important;">
@@ -121,6 +205,7 @@
                 <p class="article-text" style="width: 165px; float: left; padding-left: 3px;color: #394659;font-size: 14px; font-family: Droid Serif,serif; line-height: 20px; margin-top:0px;">Dummy text  </p>
             </div>
         </div>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="//cdn.trackduck.com/toolbar/prod/td.js" async data-trackduck-id="5853753be18ef12554491749"></script>
         {{ this.endBody() }}
     </body>
