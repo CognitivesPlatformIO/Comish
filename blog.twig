@@ -33,16 +33,17 @@
         <div class="blog__user-image" {%if blogOwnerImage is not empty%}style="background-image:url('{{blogOwnerImage}}'); background-size: cover; display: inline-block; border-radius: 50%;"{%endif%}></div>
         <div class="blog__author-name">{{blogInfo.owner['display_name'] | raw}}</div>
         <div class="blog__button-wrap">
-            {% if not _User.isGuest %}
-                {% set isUserFollowingBlog = _User.isUserFollowing('blog', blogInfo.id) %}
-                {% if isUserFollowingBlog %}
-                    <a href="javascript:void(0)" class="button button--sm button--outline followBlog" data-status="unfollow"  data-guid="{{blogInfo.guid}}">Unfollow</a>
+            {% if not _Network.isNetworkClosed(networkData)%}
+                {% if not _User.isGuest %}
+                    {% set isUserFollowingBlog = _User.isUserFollowing('blog', blogInfo.id) %}
+                    {% if isUserFollowingBlog %}
+                        <a href="javascript:void(0)" class="button button--sm button--outline followBlog" data-status="unfollow"  data-guid="{{blogInfo.guid}}">Unfollow</a>
+                    {% else %}
+                        <a href="javascript:void(0)" class="button button--sm button--outline followBlog" data-status="follow"  data-guid="{{blogInfo.guid}}">Follow</a>
+                    {% endif %}
                 {% else %}
-                    <a href="javascript:void(0)" class="button button--sm button--outline followBlog" data-status="follow"  data-guid="{{blogInfo.guid}}">Follow</a>
+                    <a href="javascript:void(0)" class="button button--sm button--outline forceLoginModal">Follow</a>
                 {% endif %}
-            {% else %}
-
-                <a href="javascript:void(0)" class="button button--sm button--outline forceLoginModal">Follow</a>
             {% endif %}
 
             <div href="#" class="button button--sm button__share">

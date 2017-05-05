@@ -167,7 +167,6 @@
             </script>
             <!-- End Google Analytics -->
         {% endif %}
-        <script src='https://www.google.com/recaptcha/api.js'></script>
         {{ this.head() }}
     </head>
 
@@ -196,7 +195,9 @@
             {{ this.render('partials/_footer.twig', {network : networkData, blogData: blogData}) | raw }}
         </div>
         <div id="popup-overlay"></div>
-        {{this.render('partials/account-modal.twig',{network : networkData}) | raw }}
+        {% if not _Network.isNetworkClosed(networkData)%}
+            {{this.render('partials/account-modal.twig',{network : networkData}) | raw }}
+        {% endif %}
         {{ this.render('partials/_javascript.twig', {networkData : networkData}) | raw }}
         <div class="SwappingHelper" style="display:none">
             <div style="width: 270px; height: 105px; padding: 3px; background-color: #FFF; max-width: 270px; max-height: 105px; overflow: hidden; z-index: 999 !important;">
@@ -204,6 +205,7 @@
                 <p class="article-text" style="width: 165px; float: left; padding-left: 3px;color: #394659;font-size: 14px; font-family: Droid Serif,serif; line-height: 20px; margin-top:0px;">Dummy text  </p>
             </div>
         </div>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <script src="//cdn.trackduck.com/toolbar/prod/td.js" async data-trackduck-id="5853753be18ef12554491749"></script>
         {{ this.endBody() }}
     </body>
