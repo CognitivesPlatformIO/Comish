@@ -25,7 +25,7 @@
             <link rel="icon" href="{{favicon}}" sizes="any" type="image/svg+xml" />
         {% endif %}
         
-        {% set isPage = 'content_box_page' in _Page.getBodyClass() %}
+        {% set isPage = 'content_box_page' in _Page.getBodyClass() and 'page-contact-us' not in _Page.getBodyClass() %}
 		
 		{% set bodyClass = _Page.getBodyClass() | replace({('article') : 'article__page'}) %}
         {% set primaryFont = networkData['styling']['fonts']['primaryFont'] %}
