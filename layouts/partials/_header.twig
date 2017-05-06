@@ -94,7 +94,7 @@
             </div>
             <div class="header__user">
                 {% if _User.isGuest() %}
-                    {% if not _Network.isNetworkClosed(networkData)%}
+                    {% if not _Network.isNetworkClosed(network)%}
                         <div class="header__user_login" id="login">
                             <a class="header__login__link">Login</a>
                             |
@@ -112,8 +112,10 @@
 	                <div class="header__user_popup-tip"></div>
 	                <div class="header__user_popup">
 	                    <a href="{{_AppHelper.buildUrl('user/my-news')}}" class="header__user_link">My News</a>
-	                    <a href="#" class="header__user_link account-modal-link link--following">Following</a>
-	                    <a class="header__user_link account-modal-link link--profile">Profile</a>
+                            {% if not _Network.isNetworkClosed(network)%}
+                                <a href="#" class="header__user_link account-modal-link link--following">Following</a>
+	                    {% endif %}
+                            <a class="header__user_link account-modal-link link--profile">Profile</a>
 	                    <a href="#" class="header__user_link account-modal-link link--account">My Account</a>
                             {% if _User.isAdminUser() %}
                                 <a class="header__user_link" href="http://{{network.defaultDomain['domain']}}/admin" target="_blank">Admin</a>
@@ -125,7 +127,7 @@
             </div>
         </div>
         <div class="header__bottom-bar"></div>
-        {{ this.render('header-mobile-content.twig', {network: networkData, blogData: blogData}) | raw }}
+        {{ this.render('header-mobile-content.twig', {network: network, blogData: blogData}) | raw }}
 
     </div>
 </header>

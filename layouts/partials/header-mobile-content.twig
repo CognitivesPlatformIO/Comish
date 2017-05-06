@@ -42,7 +42,7 @@
         </div>
         <div class="header-mobile__user">
             {% if _User.isGuest() %}
-                {% if not _Network.isNetworkClosed(networkData)%}
+                {% if not _Network.isNetworkClosed(network)%}
                     <div class="header__user_login" id="login">
                         <a class="header__login__link">Login</a>
                         |
