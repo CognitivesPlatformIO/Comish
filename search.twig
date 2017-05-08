@@ -1,5 +1,6 @@
 {# Search Twig template #}
 {{ set(this, 'title', 'Search - ' ~ search) }}
+{% set networkData = _Network.getNetworkData() %}
 
 {{this.registerJs("SearchController.listing();")}}
 
@@ -22,8 +23,15 @@
             </div>
         </div>
     {% else %}
-        <div class="search__error">Sorry, we couldnt find what you were looking for</div>
-		<a href="{{homeUrl}}" class="button search__button">Back to Homepage</a>
+        <div class="search__image">
+            <img src="{{networkData.templatePath}}/static/images/icons/error.svg" alt="image" />
+        </div>
+
+        <div class="search__error">
+            <h3 class="head">404</h3>
+            Sorry, we couldnt find what you were looking for
+        </div>
+        <a href="{{homeUrl}}" class="button search__button">Back to Homepage</a>
     {% endif %}
 
     <!-- Start Pagination block -->
