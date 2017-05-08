@@ -12,9 +12,24 @@
     @include text-md($color: $heading-text, $letter-spacing: -0.2px, $font-weight: 500, $line-height: 1.22);
     margin-top: 23px;
     margin-bottom: 19px;
+    width: 100%;
+    text-align: center;
+    .head {
+        text-align: center;
+        width: 100%;
+        @include text-md($color: $heading-text, $font-multiplier: 2.5, $letter-spacing: -0.2px, $font-weight: 500, $line-height: 1.22);
+    }
   }
   &__button {
     padding: 7px 10px;
+    margin: 0 auto;
+  }
+  &__image {
+      text-align: center;
+      width: 100%;
+      img {
+          height: 40px;
+      }
   }
   &__query {
     display: inline-block;
