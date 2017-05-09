@@ -39,7 +39,7 @@
 </script>
 <div class="article">
     <div class="article__headerSection">
-        {% if media|length %}
+        {% if article.media|length %}
         <amp-carousel width="1280" height="600" layout="responsive" type="slides" autoplay="" loop="">
             {% for media in article.media %}
                 {% if media.type == 'video' %} 
