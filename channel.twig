@@ -19,15 +19,17 @@
         <div class="channel__header">
             <div class="channel__header_text">
                 <h1>{{blogInfo.title}}</h1>
-                {% if not _User.isGuest %}
-                    {% set isUserFollowingBlog = _User.isUserFollowing('blog', blogInfo.id) %}
-                    {% if isUserFollowingBlog %}
-                        <div class="button button--white button--outline channel__button followBlog" data-status="unfollow"  data-guid="{{blogInfo.guid}}">Following</div>
+                {% if not _Network.isNetworkClosed(network)%}
+                    {% if not _User.isGuest %}
+                        {% set isUserFollowingBlog = _User.isUserFollowing('blog', blogInfo.id) %}
+                        {% if isUserFollowingBlog %}
+                            <div class="button button--white button--outline channel__button followBlog" data-status="unfollow"  data-guid="{{blogInfo.guid}}">Following</div>
+                        {% else %}
+                            <div  class="button button--white button--outline channel__button followBlog" data-status="follow"  data-guid="{{blogInfo.guid}}">Follow</div>
+                        {% endif %}
                     {% else %}
-                        <div  class="button button--white button--outline channel__button followBlog" data-status="follow"  data-guid="{{blogInfo.guid}}">Follow</div>
+                        <div  class="button button--white button--outline channel__button forceLoginModal">Follow</div>
                     {% endif %}
-                {% else %}
-                    <div  class="button button--white button--outline channel__button forceLoginModal">Follow</div>
                 {% endif %}
             </div>
         </div>
