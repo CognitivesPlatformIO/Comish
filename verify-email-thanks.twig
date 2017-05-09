@@ -1,7 +1,5 @@
 {{ set(this, 'title', "Verify Email Address") }}
 {{ set(this, 'params', {search: true})  }}
-{% set networkData = _Network.getNetworkData() %}
-{% set homeUrl = networkData.networkLogoLinkUrl %}
 <div class="search">
     <div class="search__error">
         {% if success == '1' %}
@@ -10,5 +8,5 @@
             Verification of email address failed.
         {% endif %}
     </div>
-    <a href="{{homeUrl}}" class="button search__button">Back to Homepage</a>
+    <a href="{{_AppHelper.getLoginUrl()}}" class="button search__button">Back to Login</a>
 </div>
