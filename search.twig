@@ -9,6 +9,8 @@
 {% set limit = 20 %}
 {% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search}) %}
 {% set blog = _Blog.getBlog() %}
+{% set homeUrl = networkData.networkLogoLinkUrl %}
+
 <div class="search">
     <div class="search__heading">
         {{ articles|length }} Search results for:
