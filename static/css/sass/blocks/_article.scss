@@ -89,6 +89,7 @@
         position: relative;
         margin-top: 30px;
         margin-bottom: 60px;
+        float: left;
         img {
             margin-top: 0px;
             margin-bottom: 0px;
@@ -305,7 +306,7 @@
         display: flex;
         justify-content: space-between;
         width: 109px;
-        z-index: 2;
+        z-index: 40;
         margin: 22px auto 0px;
         @include tablet {
             position: absolute;
@@ -343,6 +344,7 @@
         background: $white;
         padding: 0px 10px;
         margin: 0 auto;
+        float: left; 
         @include tablet {
             padding: 0px 20px;
         }
