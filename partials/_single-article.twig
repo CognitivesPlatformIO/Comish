@@ -21,7 +21,7 @@
     {% set cardImageClass = 'card__no-image' %}
     {% if article.featuredMedia | length > 0 and article.featuredMedia['id'] is not empty %}
         {% set cardImageClass = '' %}
-        {% set articleImg = _Media.getMediaUrl(article.featuredMedia,imgWidth, imgHeight, {'crop': 'thumb', 'gravity': gravity} ) %}
+        {% set articleImg = _Media.getMediaUrl(article.featuredMedia,imgWidth, imgHeight, {'crop': 'fill', 'gravity': 'faces'} ) %}
         {% set bgImg = "background-image: url('"~articleImg~"');" %}
     {% endif %}
     {% set blogClass = 'card--blog_'~article.blog['id'] %}
