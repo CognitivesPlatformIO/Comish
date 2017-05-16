@@ -1227,14 +1227,12 @@ i.fa.fa-vimeo:hover {
 }
 
 .article__headline {
-  text-shadow: 0 0 4px rgba(32, 32, 32, 0.5);
   max-width: 770px;
   overflow: hidden;
   font-size: 39.6px;
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.00277em;
-  color: #ffffff;
   font-family: Yantramanav, Helvetica, Arial, sans-serif;
   margin-bottom: 27px;
   max-height: 250px;
