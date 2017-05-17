@@ -125,7 +125,7 @@
     @include text-md($font-multiplier: 1.66, $line-height: 1.1, $letter-spacing: -0.3px, $color: #fff);
     margin: 30px auto;
     text-align: left;
-    word-break: break-word;
+    word-break: normal;
     word-wrap: break-word;
     overflow: hidden;
     white-space: pre-wrap;
