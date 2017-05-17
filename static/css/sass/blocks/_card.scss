@@ -76,7 +76,7 @@
     @include transition(all $transition-duration ease);
     @include text-md($color: $heading-text, $font-multiplier: 1.22, $line-height: 1.14, $letter-spacing: -0.3px);
     margin-bottom: 10px;
-    word-break: break-word;
+    word-break: normal;
     word-wrap: break-word;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
@@ -86,7 +86,7 @@
   }
   &__text {
     @include text-md($font-multiplier: 0.78, $line-height: 1.29, $font-weight: 400);
-    word-break: break-word;
+    word-break: normal;
     word-wrap: break-word;
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
