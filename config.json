@@ -1,0 +1,15 @@
+{
+    "module" : {
+        "event" : {
+           "enabled" : false
+        },
+        "styling" : {
+            "enabled" : false
+        },
+        "page" : {
+            "contentEditor" : {
+                "enabled" : false
+            }
+        }
+    }
+}
