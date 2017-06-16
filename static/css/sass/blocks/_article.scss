@@ -366,6 +366,11 @@
                 border-color: $theme-color !important;
             }
         }
+        img {
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+            width: auto !important;
+        }
     }
     &__comments {
         margin-top: 140px;
