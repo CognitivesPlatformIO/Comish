@@ -63,7 +63,7 @@
     width: 90% !important;
 }
 .content_box_page .container {
-    max-width: inherit !important;
+    max-width: inherit;
     -webkit-flex-direction: column;
     flex-direction: column;
     padding: 0 30px;
