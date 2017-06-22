@@ -74,6 +74,11 @@
                 font-family: 'Futura-Bold';
                 src: url('/static/fonts/Futura-Bold.ttf');
             }
+            @media print {
+                header, footer, .article__header, .article__image_container, .article__info_container, .header, .article__social-links {
+                    display: none !important;
+                }
+            }
         </style>
         
         {% set themeColors = networkData['styling']['colours'] %}

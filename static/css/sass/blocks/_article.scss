@@ -71,7 +71,7 @@
     ol li {
         list-style-type: decimal;
     }
-    img {
+    /* img {
         width: calc(100% + 20px) !important;
         margin-left: -10px;
         margin-right: -10px;
@@ -84,6 +84,16 @@
             margin-left: -200px;
             margin-right: -200px;
         }
+    } */
+    img {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        height: auto !important;
+        @include desktop {
+            margin-top: 30px;
+            margin-bottom: 60px;
+        }
     }
     figure {
         position: relative;
@@ -95,9 +105,9 @@
             margin-bottom: 0px;
         }
         figcaption {
-            width: calc(100% + 20px);
-            margin-left: -10px;
-            margin-right: -10px;
+            width: 100%;
+            margin-left: 0px;
+            margin-right: 0px;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -105,11 +115,11 @@
             color: $white;
             z-index: 30;
             padding: 10px 20px;
-            @include desktop {
+            /* @include desktop {
                 width: 1170px !important;
                 margin-left: -200px;
                 margin-right: -200px;
-            } 
+            }  */
         }
     }
     &__intro, &__intro p {
@@ -365,7 +375,7 @@
                 color: $theme-color !important;
                 border-color: $theme-color !important;
             }
-        }
+        } 
     }
     &__comments {
         margin-top: 140px;

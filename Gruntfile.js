@@ -31,7 +31,7 @@ module.exports = function(grunt) {
                         'static/dev/js/account-modal.js',
                         'static/dev/js/user-profile.js',
                         'static/dev/js/login.js'
-                    ]
+                    ]                    
                 }
             }
         },
@@ -61,6 +61,10 @@ module.exports = function(grunt) {
                         'static/js/plugins/jquery.noty-2.3.8/demo/animate.css',
                         '../../static/sdk/js/media-player/mediaelementplayer.css',
                         'static/css/index.css'
+                    ],
+                    'static/deploy/print.min.css': [
+                        'static/css/bootstrap-print.css',
+                        'static/css/bootstrap-print-md.css'
                     ]
                 }
             }
