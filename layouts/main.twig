@@ -42,7 +42,9 @@
         <link rel="alternate" type="application/rss+xml" title="{{_Network.getNetworkTitle()}} -  RSS Feeds" href="http://{{networkData.defaultDomain['domain']}}/feed/rss"/>
         
         {% if _AppHelper.getApplicationEnv() == 'PROD'%}
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1497609354593" type="text/css" media="all">
+            <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1498112429356" type="text/css" media="all">
+            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/bootstrap-print.css?rel=1498112429356" type="text/css" media="print">
+            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/bootstrap-print-md.css?rel=1498112429356" type="text/css" media="print">
         {% else %}
             <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/js/plugins/jquery.fancybox/source/jquery.fancybox.css" />
             <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/js/plugins/jquery.noty-2.3.8/demo/animate.css" />
@@ -57,7 +59,7 @@
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/box/box.css" rel="stylesheet" type="text/css" />
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbuilder/contentbuilder.css" rel="stylesheet" type="text/css" />
             <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbox/contentbox.css" rel="stylesheet" type="text/css" />
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/contentbox-breakup.css?rel=1497609354593" type="text/css" media="all" />
+            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/contentbox-breakup.css?rel=1498112429356" type="text/css" media="all" />
         {% endif %}
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Yantramanav:300,400,500,700,900" rel="stylesheet">
         <style>
@@ -73,6 +75,11 @@
             @font-face {
                 font-family: 'Futura-Bold';
                 src: url('/static/fonts/Futura-Bold.ttf');
+            }
+            @media print {
+                header, footer, .article__header, .article__image_container, .article__info_container, .header {
+                    display: none !important;
+                }
             }
         </style>
         

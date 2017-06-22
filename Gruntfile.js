@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         cachebreaker: {
             theme: {
                 options: {
-                    match: ['theme.min.js', 'output.min.css', 'contentbox-breakup.css']
+                    match: ['theme.min.js', 'output.min.css', 'contentbox-breakup.css', 'bootstrap-print.css' , 'bootstrap-print-md.css']
                 },
                 files: {
                     src: [
