@@ -91,8 +91,8 @@
                             {% endif %}
                             <h3 class="card__headline" itemprop="headline">{{articleTitle}}</h3>
                             {% set articleExcerpt = Html.encode(article.excerpt)| raw %}
-                            {% if article.excerpt|length > 120 %}
-                                {% set articleExcerpt = Html.encode(article.excerpt) [:120] ~ '...' | raw %}
+                            {% if article.excerpt|length > 150 %}
+                                {% set articleExcerpt = Html.encode(article.excerpt) [:150] ~ '...' | raw %}
                             {% endif %}
                             <p class="card__text" itemprop="description">{{articleExcerpt}}</p>
                             <div itemprop="author" itemscope itemtype="https://schema.org/Person">
