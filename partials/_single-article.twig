@@ -165,16 +165,20 @@
                             <div class="card__channel-wrap">
                                 <h5 class="card__channel">{{social.blog['title'] | raw }}</h5>
                             </div>
+                            {% set socialContent = social.content %}
+                            {% if social.content|length > 80 %}
+                                {% set socialContent = social.content [:80] ~ '...' %}
+                            {% endif %}
                             {% if social.media['type'] == 'video' and social.media['videoUrl'] is not empty %}
                                 <div class="card__text-wrap">
-                                    <p class="card__headline" id="updateSocial{{article.socialId}}" data-update="0">{{ social.content [:80] ~ '...'  | raw }}</p>
+                                    <p class="card__headline" id="updateSocial{{article.socialId}}" data-update="0">{{ socialContent }}</p>
                                 </div>
                                 {% set socialIcon=social.source %}
                                 {% if social.source == _SocialFeed.getSocialArticleSourceIsYoutube() %}
                                     {% set socialIcon= 'youtube-play' %}
                                 {% endif %}
                             {% else %}
-                                <p class="card__headline" id="updateSocial{{article.socialId}}" data-update="0">{{ social.content [:80] ~ '...'  | raw }}</p>
+                                <p class="card__headline" id="updateSocial{{article.socialId}}" data-update="0">{{ socialContent }}</p>
                             {% endif %}
                             <div class="card__info">
                                 <div class="card__info_separator"></div>
