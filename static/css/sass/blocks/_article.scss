@@ -276,6 +276,7 @@
             @include image-background;
             margin-bottom: 19px;
             display: block;
+            text-transform: capitalize;
         }
         &_follow {
             padding: 7px 20px;
