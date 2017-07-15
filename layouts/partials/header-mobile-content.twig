@@ -31,7 +31,7 @@
             {% if menuItems[5] is defined %}
                 <div class="header-mobile__navigation_more header-mobile__navigation_link">
                     <a class="header-mobile__navigation_link">More <i class="fa fa-angle-down"></i></a>
-                    <div class="header__navigation_more-box">
+                    <div class="header-mobile__navigation_more-box">
                         {% for i in 5..(menuItems |length - 1)%}
                             {% set menuItem = menuItems[i] %}
                             <a href="{{ menuItem.link }}" class="header-mobile__navigation_link">{{ ((menuItem.label is empty) ? ((menuItem.pageTitle is empty)? menuItem.blogTitle : menuItem.pageTitle) : menuItem.label )}}</a>
@@ -55,10 +55,10 @@
                 {% set userImage = 'header__heading-link--profile-image' %}
                 {% set profileImage = _Media.getMediaUrl(user.profileMedia, 80, 80, {radius: 'max', gravity: 'face', 'crop': 'thumb', 'type' : 'user'}) %}
                 <img class="header__user_image" src="{{profileImage}}" alt="User image"/>
-                <div class="header__user_text">{{user.firstname}} <i class="fa fa-angle-down"></i></div>
+                <div class="header-mobile__user header__user_text">{{user.firstname}} <i class="fa fa-angle-down"></i></div>
                 <div class="header__user_popup-container">
                     <div class="header__user_popup-tip"></div>
-                    <div class="header__user_popup">
+                    <div class="header-mobile__user_popup">
                         <a href="{{_AppHelper.buildUrl('user/my-news')}}" class="header__user_link">My News</a>
                         {% if not _Network.isNetworkClosed(network)%}
                             <a href="#" class="header__user_link account-modal-link link--following">Following</a>
