@@ -4,7 +4,6 @@
 {% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 {% set articles = articlesArr.articles %}
 
-{{this.registerJs("HomeController.listing();")}}
 <div class="home ">
     {% if articles|length > 0 %}
         {% if articles[0] is defined %}
