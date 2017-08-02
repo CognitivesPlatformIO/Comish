@@ -276,6 +276,7 @@
             @include image-background;
             margin-bottom: 19px;
             display: block;
+            text-transform: capitalize;
         }
         &_follow {
             padding: 7px 20px;
@@ -368,7 +369,7 @@
         max-width: 770px;
         padding: 57px 0px 0px;
         margin: 0px auto 100px;
-        a {
+        a:not(.is-btn-ghost1, .is-btn-ghost2, .btn) {
             border-bottom: 1px solid $body-text !important;
             color: $body-text !important;
             &:hover, &:focus {
