@@ -1,14 +1,11 @@
 {
     "module" : {
-        "event" : {
-           "enabled" : false
-        },
         "styling" : {
-            "enabled" : false
+            "enabled" : true
         },
         "page" : {
             "contentEditor" : {
-                "enabled" : false
+                "enabled" : true
             }
         }
     }
