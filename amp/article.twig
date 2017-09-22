@@ -52,7 +52,7 @@
 <div class="article">
     <div class="article__headerSection">
         {% if article.media|length %}
-            <amp-carousel width="1280" height="600" layout="responsive" type="slides" autoplay="" loop="">
+            <amp-carousel width="400" height="300" layout="responsive" type="slides" autoplay="" loop="">
                 {% for media in article.media %}
                     {% if media.type == 'video' %} 
                         {% set mediaUrl = "" %}
@@ -75,7 +75,7 @@
                         {% endif %}                   
                     {% else %}
                         <figure>
-                            <amp-img src="{{media.path}}" class="" layout="fill"></amp-img>
+                            <amp-img src="{{media.path}}" class="" width="400" height="300" layout="responsive"></amp-img>
                         </figure>
                     {% endif %}
                 {% endfor %}
