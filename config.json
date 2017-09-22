@@ -1,5 +1,8 @@
 {
     "module" : {
+        "debug": {
+            "enabled": false
+        },
         "styling" : {
             "enabled" : true
         },
