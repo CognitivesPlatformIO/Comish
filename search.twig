@@ -8,12 +8,13 @@
 
 {% set limit = 20 %}
 {% set articles = _Search.searchArticles({'limit': limit, 'offset': 0, 'search': search}) %}
+{% set articlesCount = _Search.searchArticles({'countOnly': 1, 'search': search}) %}
 {% set blog = _Blog.getBlog() %}
 {% set homeUrl = networkData.networkLogoLinkUrl %}
 
 <div class="search">
     <div class="search__heading">
-        {{ articles|length }} Search results for:
+        {{ articlesCount }} Search results for:
         <span class="search__query"> <i>{{search}}</i></span>
     </div>
     {% if articles|length %}
