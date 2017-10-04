@@ -96,9 +96,9 @@
                 {% if _User.isGuest() %}
                     {% if not _Network.isNetworkClosed(network)%}
                         <div class="header__user_login" id="login">
-                            <a class="header__login__link">Login</a>
+                            <a class="header__login__link" data-title="Welcome back!" data-content="Your account is your portal to all things {{network.title}}; your favourite topics, authors and your customised news feed.">Login</a>
                             |
-                            <a class="header__login__link header__login__link--signup sign-up__link">Sign Up</a>
+                            <a class="header__login__link header__login__link--signup sign-up__link" data-title="Welcome Aboard!" data-content="Creating an account is your portal to all things {{network.title}}; your favourite topics, authors and your customised news feed.">Sign Up</a>
                         </div>
                     {% endif %}
                 {% else %}
