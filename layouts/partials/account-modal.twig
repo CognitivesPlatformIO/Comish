@@ -7,6 +7,7 @@
         <div class="account-modal__navigation">
             <div class="account-modal__navigation_info">
                 {% set logoUrl = network.networkLogoLinkUrl %}
+                {% set logo = network.templatePath~'/static/images/themeLogo.svg'%}
                 {% if network.logoMedia | length > 0 %}
                     {% set logo = _Media.getMediaUrl(network.logoMedia, 177, 65, {'crop': 'limit'} )%}
                     <a class="account-modal__navigation_logo" href="{{logoUrl}}"><img src="{{logo}}"/></a>
