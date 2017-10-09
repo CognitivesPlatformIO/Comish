@@ -95,14 +95,26 @@
             margin-bottom: 60px;
         }
     }
+    img[width="1"][height="1"] {
+        display: none;
+    }
     figure {
         position: relative;
         margin-top: 30px;
         margin-bottom: 60px;
         float: left;
+        width: auto;
+        left: 50%;
+        -webkit-transform: translate(-50%,0);
+        -moz-transform: translate(-50%,0);
+        -ms-transform: translate(-50%,0);
+        -o-transform: translate(-50%,0);
+        transform: translate(-50%,0);
+        max-width: 100%;
         img {
             margin-top: 0px;
             margin-bottom: 0px;
+            display: block; 
         }
         figcaption {
             width: 100%;
