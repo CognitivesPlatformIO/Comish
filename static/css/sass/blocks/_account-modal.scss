@@ -49,7 +49,10 @@
         }
         &_logo {
             height: 43px;
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; */
+            img {
+                height: 100%;
+            }
         }
         &_text {
             @include text-md($color: $body-text, $font-multiplier: 0.778, $line-height: 1.38, $letter-spacing: 0px, $font-weight: 400);
