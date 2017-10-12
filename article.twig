@@ -86,7 +86,7 @@
                         {% set isUserFollowing = _User.isUserFollowing('writer', article.createdBy['id'])  %}
                     {% endif %}
                     {% if _User.isGuest() %}
-                        <a href="javascript:;" class="article__info_follow button button--outline button--sm forceLoginModal">Follow</a>
+                        <a href="javascript:;" class="article__info_follow button button--outline button--sm forceLoginModal" data-title="Welcome back!" data-content="Your account is your portal to all things {{network.title}}; your favourite topics, authors and your customised news feed.">Follow</a>
                     {% elseif article.createdBy['id'] != _User.getId() %}
                         {% set status = 'follow' %}
                         {% if isUserFollowing %}

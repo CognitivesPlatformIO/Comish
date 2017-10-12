@@ -231,7 +231,12 @@ body {
     }
   }
 }
-
+.error__page {
+    padding-top: 50px;
+    @include tablet {
+        padding-top: 0px;
+    }
+}
 // 404 Page
 .404-content {
   flex-direction: column;
