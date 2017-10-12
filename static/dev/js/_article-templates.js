@@ -111,6 +111,7 @@ var socialCardTemplate =
                             '<div class="card__channel-wrap">'+
                                 '<h5 class="card__channel">{{social.blog.title}}</h5>'+
                             '</div>'+
+                            '<div class="social-icon"></div>'+
                              '{{#if hasMediaVideo }}'+
                             '<div class="card__text-wrap">'+
                                 //'<img class="card__play-button video-player" data-source="{{social.source}}" data-url="{{social.media.videoUrl}}" data-poster="{{social.media.path}}" src="{{templatePath}}/static/images/icons/play-white.svg" alt="Play video button">'+

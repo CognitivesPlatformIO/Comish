@@ -170,6 +170,7 @@
                             <div class="card__channel-wrap">
                                 <h5 class="card__channel">{{social.blog['title'] | raw }}</h5>
                             </div>
+                            <div class="social-icon"></div>
                             {% set socialContent = social.content %}
                             {% if social.content|length > 80 %}
                                 {% set socialContent = social.content [:80] ~ '...' %}

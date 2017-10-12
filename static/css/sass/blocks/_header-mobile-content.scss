@@ -67,6 +67,9 @@
                 box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1);
                 border: solid 1px #f9f9f9;
             }
+            .header-mobile__navigation_link {
+                padding: 8px 16px;
+            }
         }
         &_more-link {
             @include text-md($color: $header-color, $font-multiplier: 0.889, $font-weight: 500, $letter-spacing: 1px);
