@@ -456,7 +456,10 @@
         $('#popup-overlay').addClass('active');
     });
    
-
+   // article page video class added...
+    $("[data-oembed-url]").each( function(i, val) {
+            $(this).addClass('video-player');
+    });
 
 
     // Article social links fixed position on scroll.
