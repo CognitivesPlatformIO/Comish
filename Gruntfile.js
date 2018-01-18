@@ -1,6 +1,29 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+		sass: {// Task
+            dist: {// Target
+                options: {// Target options
+                    compress: false,
+					sourcemap: 'none'
+                },
+                files: {// Dictionary of files
+                    'static/css/index.css': 'static/css/sass/index.scss'
+                }
+            }
+        },
+        watch: {
+            css: {
+                files: [
+                    'static/css/sass/**/*.scss'
+                ],
+                tasks: ['sass'],
+                options: {
+                    spawn: false,
+                    livereload: true
+                }
+            }
+        },
         //Minify JS
         uglify: {
             options: {
@@ -71,10 +94,11 @@ module.exports = function(grunt) {
         },
     });
     
-    //grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-cache-breaker');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-sass');
     
     // Default task(s).
     grunt.registerTask('default', ['uglify', 'cssmin', 'cachebreaker']);
