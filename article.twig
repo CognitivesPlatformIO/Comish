@@ -53,21 +53,20 @@
                                         {% set mediaUrl = _Media.getMediaVideoUrl(media, 0, 0,{resource_type: 'video', format: 'mp4'})  %}
                                         {% set mediaVideoUrlOgg = _Media.getMediaVideoUrl(media, 0, 0,{resource_type: 'video', format: 'ogv'})  %}
                                         {% set mediaVideoUrlWebm = _Media.getMediaVideoUrl(media, 0, 0,{resource_type: 'video', format: 'webm'})  %}
-                                        <a href="javascript:void(0)" itemprop="video" class="video-overlay" data-source="{{media.source}}" data-url="{{mediaUrl}}"  data-video-id="{{media.videoId}}" data-poster="{{media.path}}" data-caption="{{article.title | raw}}">
-                                            <div class="icons">
-                                                <div class="icon"><i class="fa fa-play"></i></div>
-                                            </div> 
-                                            <iframe class="slick-video" src="{{mediaUrl}}?autoplay=0"  frameborder="0" allowfullscreen></iframe>
+                                        <a href="#hidden-content" itemprop="video" class="video-overlay article-video__modal article-video__modal__system-video article-video" data-source="{{media.source}}" data-url="{{mediaUrl}}"  data-video-id="{{media.videoId}}" data-poster="{{media.path}}" data-caption="{{article.title | raw}}">
+                                            <video class="slick-video system__videos-play" style="display: none;" id="hidden-content" controls controlsList="nodownload">
+                                                <source src="{{mediaUrl}}" type="video/mp4">
+                                                <source src="{{mediaVideoUrlOgg}}" type="video/ogg">
+                                                <source src="{{mediaVideoUrlWebm}}" type="video/webm">
+                                            </video>
                                         </a>
                                     {% else %}
                                         {% if media.source == 'youtube' %}
-                                            {% set mediaUrl = "https://www.youtube.com/embed/" ~ media.videoId  %}
+                                            {% set mediaUrl = "https://www.youtube.com/embed/" ~ media.videoId ~ "?autoplay=1"  %}
                                         {% else %}
-                                            {% set mediaUrl = "http://player.vimeo.com/video/" ~ media.videoId  %}
+                                            {% set mediaUrl = "http://player.vimeo.com/video/" ~ media.videoId ~ "?autoplay=1"  %}
                                         {% endif %}
-                                        <a href="javascript:void(0)" itemprop="video" class="video-overlay" data-source="{{media.source}}" data-url="{{mediaUrl}}"  data-video-id="{{media.videoId}}" data-poster="{{media.path}}" data-caption="{{article.title | raw}}">
-                                            <iframe class="slick-video" src="{{mediaUrl}}" frameborder="0" allowfullscreen></iframe>
-                                        </a>
+                                        <a href="{{mediaUrl}}" itemprop="video" class="video-overlay article-video article-video__modal fancybox.iframe" data-source="{{media.source}}" data-url="{{mediaUrl}}"  data-video-id="{{media.videoId}}" data-poster="{{media.path}}" data-caption="{{article.title | raw}}"></a>
                                     {% endif %}
                                 {% endif %}
                             </div>
