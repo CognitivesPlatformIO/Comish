@@ -10480,6 +10480,10 @@ li.slick-active button {
       -o-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
       background: #fecd50 none repeat scroll 0 0; }
+  .article__image-slider-noMedia .article__header-text a {
+    color: #3b3c3f; }
+  .article__image-slider-noMedia .article__headline {
+    text-shadow: 0 0 12px rgba(32, 32, 32, 0.8); }
 .article__header {
   display: flex;
   flex-direction: column;

@@ -268,6 +268,18 @@
                     }
                 }
             }
+            &-noMedia {
+                .article__header {
+                    &-text {
+                        a {
+                            color: $body-text;
+                        }
+                    }
+                }
+                .article__headline {
+                    text-shadow: 0 0 12px rgba(32, 32, 32, 0.8);
+                }
+            }
         }
     }
     &__header {
