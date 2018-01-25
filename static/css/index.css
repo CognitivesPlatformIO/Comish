@@ -9268,7 +9268,10 @@ i.fa.fa-pinterest-p:hover {
   @media (min-width: 768px) {
     .card {
       margin: 15px;
-      height: 400px; } }
+      height: 460px; } }
+  @media (min-width: 1600px) {
+    .card {
+      height: 550px; } }
   .card__overlay {
     display: flex;
     height: 100%;
@@ -9283,7 +9286,10 @@ i.fa.fa-pinterest-p:hover {
     width: 100%;
     height: 100%;
     position: relative;
-    max-height: 400px; }
+    max-height: 460px; }
+    @media (min-width: 1600px) {
+      .card__content-wrap {
+        max-height: 550px; } }
   .card__content {
     flex-direction: column;
     display: flex;
@@ -9297,6 +9303,9 @@ i.fa.fa-pinterest-p:hover {
     @media (min-width: 735px) {
       .card__content {
         padding: 18px 20px 25px; } }
+    @media (min-width: 1600px) {
+      .card__content {
+        height: 262px; } }
     .card__content .social-icon {
       position: absolute;
       display: block;
@@ -9314,13 +9323,12 @@ i.fa.fa-pinterest-p:hover {
   .card__channel-wrap {
     text-align: left; }
   .card__image {
-    height: 150px;
+    height: 210px;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     position: relative;
-    align-items: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center; }
@@ -9334,9 +9342,18 @@ i.fa.fa-pinterest-p:hover {
       top: 0;
       left: 0;
       background-color: transparent; }
+    @media (min-width: 1600px) {
+      .card__image {
+        height: 285px; } }
   .card__play-button {
     width: 76px;
-    height: 76px; }
+    height: 76px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
   .card__channel {
     font-size: 11.988px;
     font-weight: 500;
@@ -9473,7 +9490,10 @@ i.fa.fa-pinterest-p:hover {
   .card__no-image .card__image {
     display: none; }
   .card__no-image .card__content {
-    height: 400px; }
+    height: 460px; }
+    @media (min-width: 1600px) {
+      .card__no-image .card__content {
+        height: 550px; } }
   @media (min-width: 768px) {
     .card__no-image .card__channel-wrap {
       margin-top: 20px; } }

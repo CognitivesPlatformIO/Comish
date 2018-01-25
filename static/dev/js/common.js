@@ -77,6 +77,15 @@
             width: '80%',
             height: '80%',
             autoSize: false,
+            wrapCSS: 'article-video__modal-design'
+        });
+        $(".article-video__modal__system-video").fancybox({
+            maxWidth: 900,
+            maxHeight: 700,
+            fitToView: false,
+            width: '80%',
+            height: '80%',
+            autoSize: false,
             wrapCSS: 'article-video__modal-design',
             afterShow: function () {
                 var vid = this.href;
@@ -86,6 +95,15 @@
                 }
                 var videoPlay = document.getElementById(vid);
                 videoPlay.play(); 
+            },
+            afterClose: function () {
+                var vid = this.href;
+                while (vid.charAt(0) === '#')
+                {
+                    vid = vid.substr(1);
+                }
+                var videoPlay = document.getElementById(vid);
+                videoPlay.pause(); 
             }
         });
     });

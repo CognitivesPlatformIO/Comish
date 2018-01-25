@@ -53,7 +53,7 @@
                                         {% set mediaUrl = _Media.getMediaVideoUrl(media, 0, 0,{resource_type: 'video', format: 'mp4'})  %}
                                         {% set mediaVideoUrlOgg = _Media.getMediaVideoUrl(media, 0, 0,{resource_type: 'video', format: 'ogv'})  %}
                                         {% set mediaVideoUrlWebm = _Media.getMediaVideoUrl(media, 0, 0,{resource_type: 'video', format: 'webm'})  %}
-                                        <a href="#hidden-content" itemprop="video" class="video-overlay article-video__modal article-video__modal__system-video article-video" data-source="{{media.source}}" data-url="{{mediaUrl}}"  data-video-id="{{media.videoId}}" data-poster="{{media.path}}" data-caption="{{article.title | raw}}">
+                                        <a href="#hidden-content" itemprop="video" class="video-overlay article-video__modal__system-video article-video" data-source="{{media.source}}" data-url="{{mediaUrl}}"  data-video-id="{{media.videoId}}" data-poster="{{media.path}}" data-caption="{{article.title | raw}}">
                                             <video class="slick-video system__videos-play" style="display: none;" id="hidden-content" controls controlsList="nodownload">
                                                 <source src="{{mediaUrl}}" type="video/mp4">
                                                 <source src="{{mediaVideoUrlOgg}}" type="video/ogg">
