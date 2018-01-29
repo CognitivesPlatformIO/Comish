@@ -506,7 +506,13 @@ HomeController.Article = (function ($) {
                 }
             });
         });
+        $('.article__container .article__content figure').after('<div class="clearfix"></div>');
 
+        $('.article__container .article__content figure figcaption').each(function () {
+            if (!$(this).text().trim().length > 0) {
+                $(this).addClass("hide");
+            }
+        });
     };
 
     return {

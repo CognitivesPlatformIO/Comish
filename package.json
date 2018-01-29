@@ -10,7 +10,9 @@
   "dependencies": {
     "browser-sync": "^2.17.6",
     "chalk": "^0.4.0",
-    "gulp": "^3.6.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "0.0.7",
     "gulp-clean": "^0.2.4",
     "gulp-concat": "^2.2.0",

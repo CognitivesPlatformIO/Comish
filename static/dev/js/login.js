@@ -21,3 +21,9 @@ LoginController.Login = (function ($) {
     };
 
 }(jQuery));
+
+$(".header__login__link, .account-modal__navigation_item, .article__info_follow.forceLoginModal").on('click', function() {
+    var title = $(this).data('title');
+    var content = $(this).data('content');
+    $(".account-modal__navigation_text").html('<p>'+title+'</p><p>'+content+'</p>');
+});

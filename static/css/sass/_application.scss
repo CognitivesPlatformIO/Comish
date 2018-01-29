@@ -176,4 +176,14 @@
       color: $color;
     }
   }
+  @if $name == 'linkedin' {
+    i.fa.fa-linkedin-square:hover {
+      color: $color;
+    }
+  }
+  @if $name == 'pinterest' {
+    i.fa.fa-pinterest-p:hover {
+      color: $color;
+    }
+  }
 }

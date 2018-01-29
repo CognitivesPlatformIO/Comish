@@ -39,8 +39,11 @@
         flex-wrap: wrap;
         align-self: flex-start;
         max-height: 120px;
-        max-width: 200px;
+        max-width: 100%;
         margin-bottom: 27px;
+        @include mobile {
+            max-width: 200px;
+        }
         @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
             margin-bottom: 100px;
         }
