@@ -1,20 +1,20 @@
 {% set networkData = _Network.getNetworkData() %}
 {% if article.articleId > 0 %}
-    {% set imgWidth = 390 %}
-    {% set imgHeight = 270 %}
+    {% set imgWidth = 780 %}
+    {% set imgHeight = 439 %}
     {% if 'col-full' in containerClass %}
-        {% set imgWidth = 1370 %}
-        {% set imgHeight = 720 %}
+        {% set imgWidth = 1900 %}
+        {% set imgHeight = 1069 %}
     {% endif %}
     {% set gravity = 'faces' %}
     {% if containerClass == 'col-quarter' %}
         {% set gravity = 'face' %}
-        {% set imgWidth = 570 %}
-        {% set imgHeight = 470 %}
+        {% set imgWidth = 780 %}
+        {% set imgHeight = 439 %}
     {% endif %}
     {% if containerClass == 'col-full' %}
-        {% set imgWidth = 1360 %}
-        {% set imgHeight = 430 %}
+        {% set imgWidth = 1900 %}
+        {% set imgHeight = 1069 %}
     {% endif %}
     {% set articleImg = '' %}
     {% set bgImg = '' %}
@@ -54,9 +54,12 @@
                 <div class="card__overlay">
                     <div class="card__content-wrap">
                         {% if article.hasMedia == 'TRUE' %}
-                            <div class="card__image" style="background-image: url('{{ articleImg }}');">
+                            <div id="{% if article.featuredMedia['type'] == 'video' %} system-videos {% endif %}" class="card__image" style="background-image: url('{{ articleImg }}');">
                                 <div class="card__image_overlay"></div>
-                            </div>                       
+                                {% if article.featuredMedia['type'] == 'video' %}
+                                    <img class="card__play-button {{systemVideoClass}}" src="{{networkData.templatePath}}/static/images/icons/play-white.svg" alt="Play">
+                                {% endif %}
+                            </div>                         
                         {% endif %}
                         {% if article.userHasBlogAccess == '1' %}
                             <div class="admin-actions">

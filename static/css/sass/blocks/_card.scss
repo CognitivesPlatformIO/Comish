@@ -5,7 +5,10 @@
   margin: 5px 10px 5px;
   @include tablet {
     margin: 15px;
-    height: 400px;
+    height: 460px;
+  }
+  @include desktop-lg {
+      height: 550px;
   }
   &__overlay {
     display: flex;
@@ -27,7 +30,10 @@
     width: 100%;
     height: 100%;
     position: relative;
-    max-height: 400px;
+    max-height: 460px;
+    @include desktop-lg {
+        max-height: 550px;
+    }
   }
   &__content {
     flex-direction: column;
@@ -38,9 +44,12 @@
     justify-content: flex-start;
     padding: 18px 10px 25px;
     height: 250px;
-    position: relative;
+    position: relative; 
     @media (min-width: 735px) {
       padding: 18px 20px 25px;
+    }
+    @include desktop-lg {
+        height: 262px;
     }
     .social-icon {
         position: absolute;
@@ -62,13 +71,12 @@
     text-align: left;
   }
   &__image {
-    height: 150px;
+    height: 210px;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     position: relative;
-    align-items: center;
     @include image_background;
     &_overlay {
       @include transition(all $transition-duration ease);
@@ -79,10 +87,20 @@
       left: 0;
       background-color: transparent;
     }
+    @include desktop-lg {
+        height: 285px;
+    }
   }
   &__play-button {
     width: 76px;
     height: 76px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
   }
   &__channel {
     @include channel;
@@ -221,7 +239,10 @@
       display: none;
     }
     .card__content {
-      height: 400px;
+      height: 460px;
+      @include desktop-lg {
+          height: 550px;
+      }
     }
     @include tablet {
       .card__channel-wrap {
@@ -233,10 +254,10 @@
 
 .col-third, .col-half {
   .card {
-    background: transparent!important;
+    background: transparent !important;
     &__content {
-      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
-      border: solid 1px #f2f2f2;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
+        border: solid 1px #f2f2f2;
     }
   }
 }

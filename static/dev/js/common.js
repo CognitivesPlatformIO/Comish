@@ -65,11 +65,48 @@
         $('.slick-dots').on('click', function () {
             $('.slick-slider').slick('slickPlay');
             $('.article').removeClass('video-play');
-        })
+        });
 
         // $('.playVideo').videoPlayer({});
     });
-
+    $(document).ready(function () {
+        $(".article-video__modal").fancybox({
+            maxWidth: 900,
+            maxHeight: 700,
+            fitToView: false,
+            width: '80%',
+            height: '80%',
+            autoSize: false,
+            wrapCSS: 'article-video__modal-design'
+        });
+        $(".article-video__modal__system-video").fancybox({
+            maxWidth: 900,
+            maxHeight: 700,
+            fitToView: false,
+            width: '80%',
+            height: '80%',
+            autoSize: false,
+            wrapCSS: 'article-video__modal-design',
+            afterShow: function () {
+                var vid = this.href;
+                while (vid.charAt(0) === '#')
+                {
+                    vid = vid.substr(1);
+                }
+                var videoPlay = document.getElementById(vid);
+                videoPlay.play();
+            },
+            afterClose: function () {
+                var vid = this.href;
+                while (vid.charAt(0) === '#')
+                {
+                    vid = vid.substr(1);
+                }
+                var videoPlay = document.getElementById(vid);
+                videoPlay.pause();
+            }
+        });
+    });
     $(document).on('click', '.forceLoginModal', function (e) {
         $('.account-modal__container').addClass('active');
     });

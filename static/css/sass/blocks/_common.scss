@@ -3,7 +3,32 @@ body {
     overflow: hidden;
   }
 }
-
+html {
+    &.fancybox-margin {
+        margin-right: 0px; 
+    }
+}
+.article-video__modal-design {
+    .fancybox-skin { 
+        background: none;
+        @include appearance();
+        -webkit-box-shadow: 0 0px 0px rgba($black, 0);
+        -moz-box-shadow: 0 0px 0px rgba($black, 0);
+        box-shadow: 0 0px 0px rgba($black, 0);
+        text-align: center;
+    }
+    .fancybox-close {
+        background-image: url('../images/icons/close-modal.svg');
+        background-repeat: no-repeat;
+    }
+    .slick-video {
+        width: inherit;
+        height: inherit;
+    }
+    .fancybox-inner {
+        overflow: hidden !important;
+    }
+}
 #popup-overlay {
   display: none;
   position: fixed;
@@ -238,7 +263,7 @@ body {
     }
 }
 // 404 Page
-.404-content {
+.page404-content {
   flex-direction: column;
   padding: 100px 0px;
   width: 100%;
