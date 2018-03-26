@@ -54,9 +54,12 @@
                 <div class="card__overlay">
                     <div class="card__content-wrap">
                         {% if article.hasMedia == 'TRUE' %}
-                            <div class="card__image" style="background-image: url('{{ articleImg }}');">
+                            <div id="{% if article.featuredMedia['type'] == 'video' %} system-videos {% endif %}" class="card__image" style="background-image: url('{{ articleImg }}');">
                                 <div class="card__image_overlay"></div>
-                            </div>                       
+                                {% if article.featuredMedia['type'] == 'video' %}
+                                    <img class="card__play-button {{systemVideoClass}}" src="{{networkData.templatePath}}/static/images/icons/play-white.svg" alt="Play">
+                                {% endif %}
+                            </div>                         
                         {% endif %}
                         {% if article.userHasBlogAccess == '1' %}
                             <div class="admin-actions">
