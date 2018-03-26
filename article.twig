@@ -67,7 +67,7 @@
                                             {% else %}
                                                 {% set mediaUrl = "http://player.vimeo.com/video/" ~ media.videoId ~ "?autoplay=1"  %}
                                             {% endif %}
-                                            <a href="{{mediaUrl}}" itemprop="video" class="video-overlay article-video article-video__modal fancybox.iframe" data-source="{{media.source}}" data-url="{{mediaUrl}}"  data-video-id="{{media.videoId}}" data-poster="{{media.path}}" data-caption="{{article.title | raw}}"></a>
+                                            <a href="{{mediaUrl}}" itemprop="video" class="video-overlay article-video article-video__modal fancybox.iframe" data-source="{{media.source}}" data-url="{{mediaUrl}}"  data-video-id="{{media.videoId}}" data-poster="{{articleMediaImg}}" data-caption="{{article.title | raw}}"></a>
                                         {% endif %}
                                     {% endif %}
                                 </div>
