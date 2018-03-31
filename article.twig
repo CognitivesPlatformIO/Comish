@@ -134,9 +134,11 @@
                 <a href="https://plus.google.com/share?url={{article.url}}" target="_blank"><i class="fa fa-google"></i></a>
             </div>
             <div class="article__content">
-                <div class="article__intro">
-                    {{article.title | raw}}
-                </div>
+                {% if article.media | length != 0 and sliderClass != 'article__image-slider-video' %}
+                    <div class="article__intro">
+                        {{article.title | raw}}
+                    </div>
+                {% endif %}
                 {{article.content | raw}}
                 <div class="article__comments">
                     <!-- Disqus Plugin Render Here -->
