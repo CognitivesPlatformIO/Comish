@@ -9,7 +9,7 @@ html {
     }
 }
 .article-video__modal-design {
-    .fancybox-skin {
+    .fancybox-skin { 
         background: none;
         @include appearance();
         -webkit-box-shadow: 0 0px 0px rgba($black, 0);
@@ -29,7 +29,6 @@ html {
         overflow: hidden !important;
     }
 }
-
 #popup-overlay {
   display: none;
   position: fixed;
