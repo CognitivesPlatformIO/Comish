@@ -117,6 +117,7 @@ html {
   right: 0px;
   top: 0px;
   display: none;
+  z-index: 20; 
   > div:last-child {
     border-bottom: none;
   }

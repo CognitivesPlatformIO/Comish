@@ -310,6 +310,9 @@
       align-items: center;
       justify-content: center;
       height: 100%;
+      .social-icon {
+          top: 60px;
+      }
     }
     &__image {
       display: none;

@@ -9539,6 +9539,8 @@ i.fa.fa-pinterest-p:hover {
     align-items: center;
     justify-content: center;
     height: 100%; }
+    .col-full .card__content .social-icon {
+      top: 60px; }
   .col-full .card__image {
     display: none; }
   .col-full .card__channel {
@@ -12096,6 +12098,7 @@ html.fancybox-margin {
   right: 0px;
   top: 0px;
   display: none;
+  z-index: 20;
   font-size: 12.24px;
   font-weight: 500;
   line-height: 1.25;
