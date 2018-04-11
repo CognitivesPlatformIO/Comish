@@ -310,6 +310,9 @@
       align-items: center;
       justify-content: center;
       height: 100%;
+      .social-icon {
+          top: 60px;
+      }
     }
     &__image {
       display: none;
@@ -461,9 +464,6 @@
       height: 23px;
       background-color: transparent;
       margin: 0 5px 0 5px;
-    }
-    .admin-actions {
-        top: 50px;
     }
   }
   @include tablet {
