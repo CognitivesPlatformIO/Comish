@@ -9672,6 +9672,8 @@ i.fa.fa-pinterest-p:hover {
     height: 23px;
     background-color: transparent;
     margin: 0 5px 0 5px; }
+  .col-full--hero .card .admin-actions {
+    top: 50px; }
 @media (min-width: 768px) {
   .col-full--hero .card__channel-wrap {
     margin-bottom: 20px; }
@@ -12096,6 +12098,7 @@ html.fancybox-margin {
   right: 0px;
   top: 0px;
   display: none;
+  z-index: 99;
   font-size: 12.24px;
   font-weight: 500;
   line-height: 1.25;

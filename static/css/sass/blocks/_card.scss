@@ -462,6 +462,9 @@
       background-color: transparent;
       margin: 0 5px 0 5px;
     }
+    .admin-actions {
+        top: 50px;
+    }
   }
   @include tablet {
     .card {
