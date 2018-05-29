@@ -31,6 +31,9 @@
     height: 100%;
     position: relative;
     max-height: 460px;
+    @media screen and (max-width: 719px) {
+        max-height: inherit;
+    }
     @include desktop-lg {
         max-height: 550px;
     }
@@ -44,7 +47,10 @@
     justify-content: flex-start;
     padding: 18px 10px 25px;
     height: 250px;
-    position: relative; 
+    position: relative;
+    @media screen and (max-width: 719px) {
+        height: inherit;
+    }
     @media (min-width: 735px) {
       padding: 18px 20px 25px;
     }
@@ -240,6 +246,9 @@
     }
     .card__content {
       height: 460px;
+      @media screen and (max-width: 719px) {
+          height: inherit;
+      }
       @include desktop-lg {
           height: 550px;
       }
@@ -262,7 +271,7 @@
   }
 }
 
-.col-third {
+/*.col-third {
   .card__no-image {
     .card__content {
       @media (max-width: 480px) {
@@ -271,7 +280,7 @@
       }
     }
   }
-}
+}*/
 
 .col-full {
   .card {
@@ -280,6 +289,9 @@
     margin-right: 0;
     @include tablet {
       height: 420px;
+    }
+    @media screen and (max-width: 719px) {
+        max-height: inherit;
     }
     &:hover {
       .card__overlay {
@@ -340,6 +352,9 @@
       text-align: center;
       // Padding for text shadow
       padding: 5px;
+      @media screen and (max-width: 719px) {
+          max-height: inherit;
+      }
       @include tablet {
       }
     }
@@ -390,6 +405,9 @@
   .card {
     height: 391px;
     margin: 0px;
+    @media screen and (max-width: 719px) {
+        height: inherit;
+    }
     @include tablet {
       height: 550px;
     }

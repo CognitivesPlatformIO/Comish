@@ -497,8 +497,9 @@
     $("[data-oembed-url]").each( function(i, val) {
             $(this).addClass('video-player');
     });
-
-
+    if($(window).width() > 767) {
+        $(".card__text, .card__headline").dotdotdot();
+    }
     // Article social links fixed position on scroll.
     var width = $(window).width();
     if (width >= 768) {
