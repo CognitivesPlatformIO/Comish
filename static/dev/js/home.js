@@ -257,7 +257,7 @@ HomeController.Listing = (function ($) {
                                 });
                             }
 
-                            $(".card p, .card h1").dotdotdot();
+                            $(".card__text, .card__headline").dotdotdot();
 
                             initSwap();
 
