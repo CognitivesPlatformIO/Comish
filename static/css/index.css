@@ -9287,6 +9287,9 @@ i.fa.fa-pinterest-p:hover {
     height: 100%;
     position: relative;
     max-height: 460px; }
+    @media screen and (max-width: 719px) {
+      .card__content-wrap {
+        max-height: inherit; } }
     @media (min-width: 1600px) {
       .card__content-wrap {
         max-height: 550px; } }
@@ -9300,6 +9303,9 @@ i.fa.fa-pinterest-p:hover {
     padding: 18px 10px 25px;
     height: 250px;
     position: relative; }
+    @media screen and (max-width: 719px) {
+      .card__content {
+        height: inherit; } }
     @media (min-width: 735px) {
       .card__content {
         padding: 18px 20px 25px; } }
@@ -9492,6 +9498,9 @@ i.fa.fa-pinterest-p:hover {
     display: none; }
   .card__no-image .card__content {
     height: 460px; }
+    @media screen and (max-width: 719px) {
+      .card__no-image .card__content {
+        height: inherit; } }
     @media (min-width: 1600px) {
       .card__no-image .card__content {
         height: 550px; } }
@@ -9505,11 +9514,16 @@ i.fa.fa-pinterest-p:hover {
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
     border: solid 1px #f2f2f2; }
 
-@media (max-width: 480px) {
-  .col-third .card__no-image .card__content {
-    height: auto;
-    min-height: 250px; } }
-
+/*.col-third {
+  .card__no-image {
+    .card__content {
+      @media (max-width: 480px) {
+        height: auto;
+        min-height: 250px;
+      }
+    }
+  }
+}*/
 .col-full .card {
   height: 350px;
   margin-left: 0;
@@ -9517,6 +9531,9 @@ i.fa.fa-pinterest-p:hover {
   @media (min-width: 768px) {
     .col-full .card {
       height: 420px; } }
+  @media screen and (max-width: 719px) {
+    .col-full .card {
+      max-height: inherit; } }
   .col-full .card:hover .card__overlay {
     background-color: rgba(249, 249, 249, 0.3);
     box-shadow: inset 0 -53px 59px 0 rgba(0, 0, 0, 0.22); }
@@ -9568,6 +9585,9 @@ i.fa.fa-pinterest-p:hover {
     overflow: hidden;
     text-align: center;
     padding: 5px; }
+    @media screen and (max-width: 719px) {
+      .col-full .card__headline {
+        max-height: inherit; } }
   .col-full .card__info {
     display: none; }
   .col-full .card__text {
@@ -9605,6 +9625,9 @@ i.fa.fa-pinterest-p:hover {
 .col-full--hero .card {
   height: 391px;
   margin: 0px; }
+  @media screen and (max-width: 719px) {
+    .col-full--hero .card {
+      height: inherit; } }
   @media (min-width: 768px) {
     .col-full--hero .card {
       height: 550px; } }
