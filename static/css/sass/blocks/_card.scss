@@ -385,7 +385,7 @@
       &__headline {
         @include text-lg($line-height: 1.09, $font-multiplier: 3.055, $letter-spacing: -0.4px);
         text-shadow: 0 0 12px rgba(32, 32, 32, 0.5);
-        max-height: 180px;
+        max-height: 250px;
         overflow: hidden;
         padding-bottom: 3px;
         margin-bottom: 41px;
