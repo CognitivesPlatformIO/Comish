@@ -10567,8 +10567,11 @@ li.slick-active button {
     background-color: #e25e6d;
     width: 100%; }
 .article__header-text {
-  margin: 0px 0px 74px;
+  margin: 0px 0px 44px;
   max-width: 100%; }
+  @media (min-width: 768px) {
+    .article__header-text {
+      margin: 0px 0px 74px; } }
 .article__channel {
   font-size: 11.988px;
   font-weight: 500;
@@ -10605,23 +10608,23 @@ li.slick-active button {
   text-shadow: 0 0 12px rgba(32, 32, 32, 0.5);
   max-width: 770px;
   overflow: hidden;
-  font-size: 39.6px;
+  font-size: 27px;
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.00277em;
   color: #ffffff;
   font-family: "Yantramanav", Helvetica, Arial, sans-serif;
   margin-bottom: 27px;
-  max-height: 250px; }
+  max-height: 300px; }
   @media (min-width: 768px) {
     .article__headline {
-      max-height: 295px; } }
+      max-height: 330px; } }
   @media (min-width: 1200px) {
     .article__headline {
       max-height: 370px; } }
   @media (min-width: 768px) {
     .article__headline {
-      font-size: 69.84px;
+      font-size: 50.4px;
       font-weight: 900;
       line-height: 1.07;
       letter-spacing: -0.5px;
