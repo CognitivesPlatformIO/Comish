@@ -10608,7 +10608,7 @@ li.slick-active button {
   text-shadow: 0 0 12px rgba(32, 32, 32, 0.5);
   max-width: 770px;
   overflow: hidden;
-  font-size: 27px;
+  font-size: 36px;
   font-weight: 900;
   line-height: 1.1;
   letter-spacing: -0.00277em;
@@ -10624,7 +10624,7 @@ li.slick-active button {
       max-height: 370px; } }
   @media (min-width: 768px) {
     .article__headline {
-      font-size: 50.4px;
+      font-size: 63px;
       font-weight: 900;
       line-height: 1.07;
       letter-spacing: -0.5px;
