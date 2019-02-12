@@ -256,8 +256,9 @@ HomeController.Listing = (function ($) {
                                     }
                                 });
                             }
-
-                            $(".card__text, .card__headline").dotdotdot();
+                            if($(window).width() > 719) {
+                                $(".card__text, .card__headline").dotdotdot();
+                            }
 
                             initSwap();
 
@@ -303,7 +304,6 @@ HomeController.Listing = (function ($) {
                         if (data.articles.length < 20) {
                             $(btnObj).css('display', 'none');
                         }
-
                         for (var i in data.articles) {
                             data.articles[i]['containerClass'] = 'col-third';
                             data.articles[i]['templatePath'] = _appJsConfig.templatePath;
@@ -361,6 +361,9 @@ HomeController.Listing = (function ($) {
                         }
                         videoPlayFancybox();
                         bindSocialPostPopup();
+                        if($(window).width() > 719) {
+                            $(".card__text, .card__headline").dotdotdot();
+                        }
                     }
                 },
                 beforeSend: function (jqXHR, settings) {
