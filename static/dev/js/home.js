@@ -256,8 +256,9 @@ HomeController.Listing = (function ($) {
                                     }
                                 });
                             }
-
-                            $(".card__text, .card__headline").dotdotdot();
+                            if($(window).width() > 719) {
+                                $(".card__text, .card__headline").dotdotdot();
+                            }
 
                             initSwap();
 
@@ -360,7 +361,9 @@ HomeController.Listing = (function ($) {
                         }
                         videoPlayFancybox();
                         bindSocialPostPopup();
-                        $(".card__text, .card__headline").dotdotdot();
+                        if($(window).width() > 719) {
+                            $(".card__text, .card__headline").dotdotdot();
+                        }
                     }
                 },
                 beforeSend: function (jqXHR, settings) {

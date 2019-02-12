@@ -9496,17 +9496,23 @@ i.fa.fa-pinterest-p:hover {
     .card__no-image .card__channel-wrap {
       margin-top: 20px; } }
 
-.col-third .card, .col-half .card {
+.col-third .card,
+.col-half .card {
   background: transparent !important; }
-  .col-third .card__content, .col-half .card__content {
+  .col-third .card__content,
+  .col-half .card__content {
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.05);
     border: solid 1px #f2f2f2; }
-  .col-third .card__text, .col-half .card__text {
-    max-height: 92px;
-    overflow: hidden; }
-  .col-third .card__headline, .col-half .card__headline {
-    max-height: 51px;
-    overflow: hidden; }
+  @media screen and (min-width: 720px) {
+    .col-third .card__text,
+    .col-half .card__text {
+      max-height: 92px;
+      overflow: hidden; } }
+  @media screen and (min-width: 720px) {
+    .col-third .card__headline,
+    .col-half .card__headline {
+      max-height: 51px;
+      overflow: hidden; } }
 
 /*.col-third {
   .card__no-image {
