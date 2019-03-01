@@ -40,6 +40,7 @@ module.exports = function(grunt) {
                         'static/js/plugins/jquery.noty-2.3.8/js/noty/packaged/jquery.noty.packaged.min.js',
                         'static/js/plugins/jquery.fancybox/source/jquery.fancybox.js',
                         'static/js/plugins/waypoint/lib/jquery.waypoints.min.js',
+                        'static/js/plugins/jquery.ellipsis.js',
                         'static/js/jquery.simplemodal.js',
                         'static/js/zoom.js',
                         'static/js/handlebars-v4.0.5.js',

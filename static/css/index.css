@@ -12289,6 +12289,22 @@ html.fancybox-margin {
   color: #202020;
   text-align: center; }
 
+.ellip {
+  display: block;
+  height: 100%; }
+
+.ellip-line {
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  max-width: 100%; }
+
+.ellip,
+.ellip-line {
+  position: relative;
+  overflow: hidden; }
+
 .channel {
   width: 100%;
   padding-bottom: 40px; }

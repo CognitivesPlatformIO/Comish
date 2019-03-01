@@ -256,9 +256,19 @@ HomeController.Listing = (function ($) {
                                     }
                                 });
                             }
-                            if($(window).width() > 719) {
-                                $(".card__text, .card__headline").dotdotdot();
-                            }
+                            $('.card__headline').ellipsis({
+                                responsive: true,
+                                lines: 2
+                            });
+                            $('.card__text').ellipsis({
+                                responsive: true,
+                                lines: 4
+                            });
+                            $('.card__no-image .card__text').ellipsis({
+                                responsive: true,
+                                lines: 8
+                            });
+                            
 
                             initSwap();
 
@@ -361,9 +371,18 @@ HomeController.Listing = (function ($) {
                         }
                         videoPlayFancybox();
                         bindSocialPostPopup();
-                        if($(window).width() > 719) {
-                            $(".card__text, .card__headline").dotdotdot();
-                        }
+                        $('.card__headline').ellipsis({
+                            responsive: true,
+                            lines: 2
+                        });
+                        $('.card__text').ellipsis({
+                            responsive: true,
+                            lines: 4
+                        });
+                        $('.card__no-image .card__text').ellipsis({
+                            responsive: true,
+                            lines: 8
+                        });
                     }
                 },
                 beforeSend: function (jqXHR, settings) {
