@@ -256,8 +256,19 @@ HomeController.Listing = (function ($) {
                                     }
                                 });
                             }
-
-                            $(".card__text, .card__headline").dotdotdot();
+                            $('.card__headline').ellipsis({
+                                responsive: true,
+                                lines: 2
+                            });
+                            $('.card__text').ellipsis({
+                                responsive: true,
+                                lines: 4
+                            });
+                            $('.card__no-image .card__text').ellipsis({
+                                responsive: true,
+                                lines: 8
+                            });
+                            
 
                             initSwap();
 
@@ -303,7 +314,6 @@ HomeController.Listing = (function ($) {
                         if (data.articles.length < 20) {
                             $(btnObj).css('display', 'none');
                         }
-
                         for (var i in data.articles) {
                             data.articles[i]['containerClass'] = 'col-third';
                             data.articles[i]['templatePath'] = _appJsConfig.templatePath;
@@ -361,6 +371,18 @@ HomeController.Listing = (function ($) {
                         }
                         videoPlayFancybox();
                         bindSocialPostPopup();
+                        $('.card__headline').ellipsis({
+                            responsive: true,
+                            lines: 2
+                        });
+                        $('.card__text').ellipsis({
+                            responsive: true,
+                            lines: 4
+                        });
+                        $('.card__no-image .card__text').ellipsis({
+                            responsive: true,
+                            lines: 8
+                        });
                     }
                 },
                 beforeSend: function (jqXHR, settings) {

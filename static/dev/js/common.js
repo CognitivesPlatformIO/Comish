@@ -497,9 +497,18 @@
     $("[data-oembed-url]").each( function(i, val) {
             $(this).addClass('video-player');
     });
-    if($(window).width() > 767) {
-        $(".card__text, .card__headline").dotdotdot();
-    }
+    $('.card__headline').ellipsis({
+        responsive: true,
+        lines: 2
+    });
+    $('.card__text').ellipsis({
+        responsive: true,
+        lines: 4
+    });
+    $('.card__no-image .card__text').ellipsis({
+        responsive: true,
+        lines: 8
+    });
     // Article social links fixed position on scroll.
     var width = $(window).width();
     if (width >= 768) {

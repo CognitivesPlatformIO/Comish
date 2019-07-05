@@ -283,3 +283,22 @@ html {
   @include text-sm($font-multiplier: 1.33, $line-height: 1.42, $letter-spacing: -0.2px, $color: $heading-text);
   text-align: center;
 }
+
+.ellip {
+  display: block;
+  height: 100%;
+} 
+
+.ellip-line {
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  max-width: 100%;
+}
+
+.ellip,
+.ellip-line {
+  position: relative;
+  overflow: hidden;
+}

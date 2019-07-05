@@ -326,8 +326,11 @@
         }
     }
     &__header-text {
-        margin: 0px 0px 74px;
+        margin: 0px 0px 44px;
         max-width: 100%;
+        @include tablet {
+            margin: 0px 0px 74px;
+        }
     }
     &__channel {
         @include channel;
@@ -345,17 +348,17 @@
         text-shadow: 0 0 12px rgba(32, 32, 32, 0.5);
         max-width: 770px;
         overflow: hidden;
-        @include text-lg($color: $white, $font-multiplier: 2.2, $line-height: 1.1);
+        @include text-lg($color: $white, $font-multiplier: 2, $line-height: 1.1);
         margin-bottom: 27px;
-        max-height: 250px;
+        max-height: 300px;
         @include tablet {
-            max-height: 295px;
+            max-height: 330px;
         }
         @include desktop {
             max-height: 370px;
         }
         @include tablet {
-            @include text-lg($color: $white, $letter-spacing: -0.5px);
+            @include text-lg($color: $white,$font-multiplier: 3.5, $letter-spacing: -0.5px);
         }
     }
     &__info {
