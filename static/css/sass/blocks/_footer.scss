@@ -137,6 +137,11 @@
         flex: 1 0 100%;
         @include text-md($font-weight: 500, $color: $white, $font-multiplier: 0.723, $line-height: 1.73, $letter-spacing: -0.1);
         font-family: $text-font-family;
+
+        &__link {
+            @include text-md($font-weight: 500, $color: $white, $font-multiplier: 0.723, $line-height: 1.73, $letter-spacing: -0.1);
+        font-family: $text-font-family;
+        }
     }
     &.theme-color {
         background-color: $theme-color;
