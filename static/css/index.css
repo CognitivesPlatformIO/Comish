@@ -8628,6 +8628,13 @@ i.fa.fa-pinterest-p:hover {
     letter-spacing: -0.1;
     color: #ffffff;
     font-family: "Karla", Helvetica, Arial, sans-serif; }
+    .footer__copyright__link {
+      font-size: 13.014px;
+      font-weight: 500;
+      line-height: 1.73;
+      letter-spacing: -0.1;
+      color: #ffffff;
+      font-family: "Karla", Helvetica, Arial, sans-serif; }
   .footer.theme-color {
     background-color: #e25e6d; }
     .footer.theme-color .footer__navigation_more-box {
