@@ -3,112 +3,263 @@
 {{ this.beginPage() }}
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>{{this.title | raw}}</title>
-        {{ Html.csrfMetaTags | raw }}
 
-        <!-- Favicon Icon -->
-        {% set favicon = ''%}
-        {% if networkData.favMedia | length > 0 %}
-            {% set favicon = _Media.getMediaUrl(networkData.favMedia, 80, 80)%}
-        {% endif %}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{this.title | raw}}</title>
+    {{ Html.csrfMetaTags | raw }}
 
-        {% if favicon != '' %}
-            <link rel="shortcut icon" href="{{favicon}}" type="image/x-icon" />
-            <link rel="icon" href="{{favicon}}" sizes="any" type="image/svg+xml" />
-        {% endif %}
-        
-        {% set isPage = 'content_box_page' in _Page.getBodyClass() and 'page-contact-us' not in _Page.getBodyClass() %}
-		
-        {% set bodyClass = _Page.getBodyClass() | replace({('article') : 'article__page'}) %}
-		
-        <link rel="home" href="{{_AppHelper.getBaseUrl()}}" />
-        <link rel="alternate" type="application/rss+xml" title="{{_Network.getNetworkTitle()}} -  RSS Feeds" href="{{_AppHelper.getBaseUrl()}}/feed/rss"/>
-        
-        {% if _AppHelper.getApplicationEnv() == 'PROD'%}
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1563172842437" type="text/css" media="all">
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/print.min.css" type="text/css" media="print">
-        {% else %}
-            <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/js/plugins/jquery.fancybox/source/jquery.fancybox.css" />
-            <link type="text/css" rel="stylesheet" href="{{networkData.templatePath}}/static/js/plugins/jquery.noty-2.3.8/demo/animate.css" />
-            <link type="text/css" rel="stylesheet" href="{{_AppHelper.getAssetsSDKPath()}}/js/media-player/mediaelementplayer.css" />
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/index.css" type="text/css" media="all">
-        {% endif %}
-        
-        {% if isPage %}
-            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-            <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/assets/minimalist-basic/content-bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- Favicon Icon -->
+    {% set favicon = ''%}
+    {% if networkData.favMedia | length > 0 %}
+    {% set favicon = _Media.getMediaUrl(networkData.favMedia, 80, 80)%}
+    {% endif %}
 
-            <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/box/box.css" rel="stylesheet" type="text/css" />
-            <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbuilder/contentbuilder.css" rel="stylesheet" type="text/css" />
-            <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbox/contentbox.css" rel="stylesheet" type="text/css" />
-            <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/contentbox-breakup.css?rel=1563172842437" type="text/css" media="all" />
-        {% endif %}
-        <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Yantramanav:300,400,500,700,900" rel="stylesheet">
-        <style>
-            body, .body, p, a.header__navigation-link {
-                font-family: "Yantramanav", sans-serif;
+    {% if favicon != '' %}
+    <link rel="shortcut icon" href="{{favicon}}" type="image/x-icon" />
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/svg+xml" />
+    {% endif %}
+
+    {% set isPage = 'content_box_page' in _Page.getBodyClass() and 'page-contact-us' not in _Page.getBodyClass() %}
+
+    {% set bodyClass = _Page.getBodyClass() | replace({('article') : 'article__page'}) %}
+
+    <link rel="home" href="{{_AppHelper.getBaseUrl()}}" />
+    <link rel="alternate" type="application/rss+xml" title="{{_Network.getNetworkTitle()}} -  RSS Feeds"
+        href="{{_AppHelper.getBaseUrl()}}/feed/rss" />
+
+    {% if _AppHelper.getApplicationEnv() == 'PROD'%}
+
+    <link rel="preload" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1562305315394" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{networkData.templatePath}}/static/deploy/print.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" media="print">
+    <noscript>
+        <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/output.min.css?rel=1562305315394">
+        <link rel="stylesheet" href="{{networkData.templatePath}}/static/deploy/print.min.css" media="print">
+    </noscript>
+    <script>
+        (function (w) {
+            "use strict";
+            // rel=preload support test
+            if (!w.loadCSS) {
+                w.loadCSS = function () {};
             }
-            h1, h2, h3, h4, h5 {
-                font-family: "Yantramanav", serif !important;
-            }
-            .article p, .article li, figcaption {
-                font-family: 'Karla', sans-serif;
-            }
-            @font-face {
-                font-family: 'Futura-Bold';
-                src: url('/static/fonts/Futura-Bold.ttf');
-            }
-            @media print {
-                header, footer, .article__header, .article__image_container, .article__info_container, .header, .article__social-links {
-                    display: none !important;
+            // define on the loadCSS obj
+            var rp = loadCSS.relpreload = {};
+            // rel=preload feature support test
+            // runs once and returns a function for compat purposes
+            rp.support = (function () {
+                var ret;
+                try {
+                    ret = w.document.createElement("link").relList.supports("preload");
+                } catch (e) {
+                    ret = false;
+                }
+                return function () {
+                    return ret;
+                };
+            })();
+
+            // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+            // then change that media back to its intended value on load
+            rp.bindMediaToggle = function (link) {
+                // remember existing media attr for ultimate state, or default to 'all'
+                var finalMedia = link.media || "all";
+
+                function enableStylesheet() {
+                    // unbind listeners
+                    if (link.addEventListener) {
+                        link.removeEventListener("load", enableStylesheet);
+                    } else if (link.attachEvent) {
+                        link.detachEvent("onload", enableStylesheet);
+                    }
+                    link.setAttribute("onload", null);
+                    link.media = finalMedia;
+                }
+
+                // bind load handlers to enable media
+                if (link.addEventListener) {
+                    link.addEventListener("load", enableStylesheet);
+                } else if (link.attachEvent) {
+                    link.attachEvent("onload", enableStylesheet);
+                }
+
+                // Set rel and non-applicable media type to start an async request
+                // note: timeout allows this to happen async to let rendering continue in IE
+                setTimeout(function () {
+                    link.rel = "stylesheet";
+                    link.media = "only x";
+                });
+                // also enable media after 3 seconds,
+                // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+                setTimeout(enableStylesheet, 3000);
+            };
+
+            // loop through link elements in DOM
+            rp.poly = function () {
+                // double check this to prevent external calls from running
+                if (rp.support()) {
+                    return;
+                }
+                var links = w.document.getElementsByTagName("link");
+                for (var i = 0; i < links.length; i++) {
+                    var link = links[i];
+                    // qualify links to those with rel=preload and as=style attrs
+                    if (link.rel === "preload" && link.getAttribute("as") === "style" && !link.getAttribute(
+                            "data-loadcss")) {
+                        // prevent rerunning on link
+                        link.setAttribute("data-loadcss", true);
+                        // bind listeners to toggle media back
+                        rp.bindMediaToggle(link);
+                    }
+                }
+            };
+
+            // if unsupported, run the polyfill
+            if (!rp.support()) {
+                // run once at least
+                rp.poly();
+
+                // rerun poly on an interval until onload
+                var run = w.setInterval(rp.poly, 500);
+                if (w.addEventListener) {
+                    w.addEventListener("load", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
+                } else if (w.attachEvent) {
+                    w.attachEvent("onload", function () {
+                        rp.poly();
+                        w.clearInterval(run);
+                    });
                 }
             }
-        </style>
-        
-        {{_AppHelper.getHead() | raw}}
-        
-        {{ this.head() }}
-    </head>
 
-    <body class="body {{bodyClass}}">
-        {{ this.beginBody() }}
 
-        {{_AppHelper.getBody() | raw}}
+            // commonjs
+            if (typeof exports !== "undefined") {
+                exports.loadCSS = loadCSS;
+            } else {
+                w.loadCSS = loadCSS;
+            }
+        }(typeof global !== "undefined" ? global : this));
+    </script>
+    {% else %}
+    <link type="text/css" rel="stylesheet"
+        href="{{networkData.templatePath}}/static/js/plugins/jquery.fancybox/source/jquery.fancybox.css" />
+    <link type="text/css" rel="stylesheet"
+        href="{{networkData.templatePath}}/static/js/plugins/jquery.noty-2.3.8/demo/animate.css" />
+    <link type="text/css" rel="stylesheet"
+        href="{{_AppHelper.getAssetsSDKPath()}}/js/media-player/mediaelementplayer.css" />
+    <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/index.css" type="text/css" media="all">
+    {% endif %}
 
-        <div id="container">
+    {% if isPage %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/assets/minimalist-basic/content-bootstrap.css"
+        rel="stylesheet" type="text/css" />
 
-            {{ this.render('partials/_header.twig', {network: networkData, blogData: blogData}) | raw }}
-            {% if this.params['search'] is defined and this.params['search'] == true %}
-                <div class="header-theme-color"></div>
-            {% endif %}
-            <main id="content" role="main">
-                {{ content | raw}}
-            </main>
-            <div class="modal" role="dialog">
-                <div class="modal-dialog modal-extlg" role="document">
-                    <div class="modal-content social-modal">
-                    </div>
+    <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/box/box.css" rel="stylesheet"
+        type="text/css" />
+    <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbuilder/contentbuilder.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{_AppHelper.getAssetsStaticPath()}}/dist/vendors/ContentBox/contentbox/contentbox.css" rel="stylesheet"
+        type="text/css" />
+    <link rel="stylesheet" href="{{networkData.templatePath}}/static/css/contentbox-breakup.css?rel=1562305315394"
+        type="text/css" media="all" />
+    {% endif %}
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Yantramanav:300,400,500,700,900" rel="stylesheet">
+    <style>
+        body,
+        .body,
+        p,
+        a.header__navigation-link {
+            font-family: "Yantramanav", sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Yantramanav", serif !important;
+        }
+
+        .article p,
+        .article li,
+        figcaption {
+            font-family: 'Karla', sans-serif;
+        }
+
+        @font-face {
+            font-family: 'Futura-Bold';
+            src: url('/static/fonts/Futura-Bold.ttf');
+        }
+
+        @media print {
+
+            header,
+            footer,
+            .article__header,
+            .article__image_container,
+            .article__info_container,
+            .header,
+            .article__social-links {
+                display: none !important;
+            }
+        }
+    </style>
+
+    {{_AppHelper.getHead() | raw}}
+
+    {{ this.head() }}
+</head>
+
+<body class="body {{bodyClass}}">
+    {{ this.beginBody() }}
+
+    {{_AppHelper.getBody() | raw}}
+
+    <div id="container">
+
+        {{ this.render('partials/_header.twig', {network: networkData, blogData: blogData}) | raw }}
+        {% if this.params['search'] is defined and this.params['search'] == true %}
+        <div class="header-theme-color"></div>
+        {% endif %}
+        <main id="content" role="main">
+            {{ content | raw}}
+        </main>
+        <div class="modal" role="dialog">
+            <div class="modal-dialog modal-extlg" role="document">
+                <div class="modal-content social-modal">
                 </div>
             </div>
-            {{ this.render('partials/_footer.twig', {network : networkData, blogData: blogData}) | raw }}
         </div>
-        <div id="popup-overlay"></div>
-        {{this.render('partials/account-modal.twig',{network : networkData}) | raw }}
-        {{ this.render('partials/_javascript.twig', {networkData : networkData}) | raw }}
-        <div class="SwappingHelper" style="display:none">
-            <div style="width: 270px; height: 105px; padding: 3px; background-color: #FFF; max-width: 270px; max-height: 105px; overflow: hidden; z-index: 999 !important;">
-                <img class="article-image" src="{{networkData.placeHolder100x100}}" style="width:97px; height: 97px; float: left;" />
-                <p class="article-text" style="width: 165px; float: left; padding-left: 3px;color: #394659;font-size: 14px; font-family: Droid Serif,serif; line-height: 20px; margin-top:0px;">Dummy text  </p>
-            </div>
+        {{ this.render('partials/_footer.twig', {network : networkData, blogData: blogData}) | raw }}
+    </div>
+    <div id="popup-overlay"></div>
+    {{this.render('partials/account-modal.twig',{network : networkData}) | raw }}
+    {{ this.render('partials/_javascript.twig', {networkData : networkData}) | raw }}
+    <div class="SwappingHelper" style="display:none">
+        <div
+            style="width: 270px; height: 105px; padding: 3px; background-color: #FFF; max-width: 270px; max-height: 105px; overflow: hidden; z-index: 999 !important;">
+            <img class="article-image" src="{{networkData.placeHolder100x100}}"
+                style="width:97px; height: 97px; float: left;" />
+            <p class="article-text"
+                style="width: 165px; float: left; padding-left: 3px;color: #394659;font-size: 14px; font-family: Droid Serif,serif; line-height: 20px; margin-top:0px;">
+                Dummy text </p>
         </div>
-        <script src='https://www.google.com/recaptcha/api.js' async></script>
-        
-        {{_AppHelper.getFooter() | raw}}
-        
-        {{ this.endBody() }}
-    </body>
+    </div>
+    <script src='https://www.google.com/recaptcha/api.js' async></script>
+
+    {{_AppHelper.getFooter() | raw}}
+
+    {{ this.endBody() }}
+</body>
+
 </html>
 {{ this.endPage() }}
