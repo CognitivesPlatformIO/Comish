@@ -3,8 +3,11 @@
 {% set limit = 20 %}
 {% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
 {% set articles = articlesArr.articles %}
-
-{{this.registerJs("HomeController.listing();")}}
+{% raw %}
+<script>
+    window.onload = function() { HomeController.listing();}
+</script>
+{% endraw %}
 <div class="home ">
     {% if articles|length > 0 %}
         {% if articles[0] is defined %}

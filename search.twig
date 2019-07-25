@@ -2,7 +2,11 @@
 {{ set(this, 'title', 'Search - ' ~ search) }}
 {% set networkData = _Network.getNetworkData() %}
 
-{{this.registerJs("SearchController.listing();")}}
+{% raw %}
+<script>
+    window.onload = function() { SearchController.listing();}
+</script>
+{% endraw %}
 
 {{ set(this, 'params', {search: true})  }}
 

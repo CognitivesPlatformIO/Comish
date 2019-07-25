@@ -13,7 +13,12 @@
 {% set articles = articlesArr.articles %}
 {% set network = _Network.getNetworkData() %}
 
-{{this.registerJs("HomeController.listing();")}}
+{% raw %}
+<script>
+    window.onload = function() { HomeController.listing();}
+</script>
+{% endraw %}
+
 <div class="channel {{blogInfo.title}}">
     <div class="channel__header_container">
         <div class="channel__header">
