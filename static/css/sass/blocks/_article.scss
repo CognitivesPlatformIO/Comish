@@ -9,15 +9,8 @@
         position: relative;
         z-index: 20;
     }
-    h1, h2, h3, h4, h5, h6 {
+    h2, h3, h4, h5, h6 {
         color: $body-text;
-    }
-    h1 {
-        @include text-lg($color: $heading-text, $font-multiplier: 3, $line-height: 0.83);
-        margin-bottom: 27px;
-        @include tablet {
-            @include text-lg($color: $heading-text);
-        }
     }
     h2 {
         @include text-lg($color: $heading-text, $line-height: 1.21, $font-weight: 700, $font-multiplier: 1.556);
@@ -481,7 +474,14 @@
                 color: $theme-color !important;
                 border-color: $theme-color !important;
             }
-        } 
+        }
+        h1 {
+            @include text-lg($color: $heading-text, $font-multiplier: 3, $line-height: 0.83);
+            margin-bottom: 27px;
+            @include tablet {
+                @include text-lg($color: $heading-text);
+            }
+        }
     }
     &__comments {
         margin-top: 140px;
