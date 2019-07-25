@@ -15,8 +15,12 @@
 {% endif %}    
 
 {% set blogOwnerImage = _Media.getMediaUrl(blogInfo.owner['media'], 180, 180, {crop:"thumb", radius:"max", gravity:"face", type: "user"}) %}
-{{this.registerJs("HomeController.listing();")}}
-{{this.registerJs("HomeController.blog();")}}
+{% raw %}
+<script>
+    window.onload = function() { HomeController.listing();HomeController.blog();}
+</script>
+{% endraw %}
+
 
 <div class="blog home">
     <div class="blog__headline-container {% if not hasBlogImage %}no-image{% endif %}" {%if hasBlogImage%}style="background-image:url('{{blogImage}}');"{%endif%}>

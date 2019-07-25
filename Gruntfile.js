@@ -24,6 +24,10 @@ module.exports = function(grunt) {
                 }
             }
         },
+        //download sdk js
+        curl: {
+          'static/dev/js/sdk.js': 'https://d31nhj1t453igc.cloudfront.net/sdk/sdk-v1.0.7.min.js',
+        },
         //Minify JS
         uglify: {
             options: {
@@ -54,7 +58,8 @@ module.exports = function(grunt) {
                         'static/dev/js/common.js',
                         'static/dev/js/account-modal.js',
                         'static/dev/js/user-profile.js',
-                        'static/dev/js/login.js'
+                        'static/dev/js/login.js',
+                        'static/dev/js/sdk.js'
                     ]                    
                 }
             }
@@ -100,7 +105,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-cache-breaker');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-curl');
     
     // Default task(s).
-    grunt.registerTask('default', ['uglify', 'cssmin', 'cachebreaker']);
+    grunt.registerTask('default', ['curl','uglify', 'cssmin', 'cachebreaker']);
 };
