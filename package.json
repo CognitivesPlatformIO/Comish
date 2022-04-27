@@ -31,7 +31,7 @@
     "tiny-lr": "0.0.5"
   },
   "devDependencies": {
-    "grunt": "^1.0.2",
+    "grunt": "^1.5.2",
     "grunt-cache-breaker": "^2.0.1",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-sass": "^1.0.0",
