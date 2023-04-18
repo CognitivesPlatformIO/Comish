@@ -8,7 +8,7 @@
     "url": "https://github.com/belief/CraftCMS-Boilerplate"
   },
   "dependencies": {
-    "browser-sync": "^2.17.6",
+    "browser-sync": "^2.29.1",
     "chalk": "^0.4.0",
     "grunt-curl": "^2.5.1",
     "gulp": "^3.6.0",
@@ -36,7 +36,7 @@
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^2.3.0",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "gulp-plumber": "^1.1.0"
   }
 }
